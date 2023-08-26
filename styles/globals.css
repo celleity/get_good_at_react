@@ -15,10 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+
 
 h1,
 h2,
@@ -35,4 +32,16 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+}
+.MuiImageList-root {
+  overflow: hidden;
+
+}
+
+.demonHeader {
+  width: 100%;
+  height: 100%;
+  font: 100%;
+
+
 }
