@@ -92,17 +92,35 @@
   overflow: hidden !important;
 
 }
-.demons {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+.demonHeader1 {
+ display: flex;
+ align-self: center;
+ 
+  max-height: 100vh;
+  font-size: 40rem;
+  padding-bottom: 20rem;
 
 }
-.demonHeader {
+
+.demonHeader2 {
+  display: flex;
+  align-self: center;
  
-  max-width: 100vw;
+
   max-height: 100vh;
-  font-size: 50rem;
+  font-size: 20rem;
+  padding-bottom: 20rem;
+
+}
+
+.demonHeader3 {
+  display: flex;
+  align-self: center;
+ 
+
+  max-height: 100vh;
+  font-size: 25rem;
+  padding-bottom: 15rem;
 
 }

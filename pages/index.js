@@ -10,10 +10,12 @@ export default function Home() {
 
 <main >
 
-      <Stack alignItems="stretch" className={styles.demons} >
-      <div className={styles.demonHeader} > ONE!</div>
-      <div className={styles.demonHeader} > HUNDRED!</div>
-      <div className={styles.demonHeader} > DEMONS!</div>
+      <Stack  direction="column"
+  justifyContent="left"
+  alignItems="stretch" spacing="12" className={styles.demons} >
+      <div className={styles.demonHeader1} > ONE!</div>
+      <div className={styles.demonHeader2} > HUNDRED!</div>
+      <div className={styles.demonHeader3} > DEMONS!</div>
       </Stack>
      </main>
 
