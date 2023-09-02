@@ -2,7 +2,11 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import QuantumImage from '../components/QuantumImage';
 import PhotoTile from '../components/PhotoTile';
+import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
+import ImageList from '@mui/material/ImageList';
+import { styled } from '@mui/material/styles';
+
 
 export default function Home() {
   return (
@@ -17,6 +21,7 @@ export default function Home() {
       <div className={styles.demonHeader2} > HUNDRED!</div>
       <div className={styles.demonHeader3} > DEMONS!</div>
       </Stack>
+      <PhotoGrid/>
      </main>
 
      

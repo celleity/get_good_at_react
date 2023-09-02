@@ -20,7 +20,7 @@ const PhotoTile = () => {
 
 return (
 // change sizes here
-  <ImageList  cols={6} rowHeight={700}>
+  <ImageList  cols={15} rowHeight={100}>
   {itemData.map((item) => (
     <ImageListItem key={item.img}> 
       <img
