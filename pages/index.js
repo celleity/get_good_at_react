@@ -5,7 +5,7 @@ import PhotoTile from '../components/PhotoTile';
 import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
 import ImageList from '@mui/material/ImageList';
-import { styled } from '@mui/material/styles';
+
 
 
 export default function Home() {
