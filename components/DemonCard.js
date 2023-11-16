@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function DemonCard({demonNumber, demonSummary}) {
+export default function DemonCard({demonNumber, demonSummary, demonImage}) {
 
   return (
     <Card >
@@ -13,7 +13,7 @@ export default function DemonCard({demonNumber, demonSummary}) {
         <CardMedia
           component="img"
           height="200"
-          image="susies.jpg"
+          image={demonImage}
           alt={demonSummary.summary}
         />
         <CardContent>
