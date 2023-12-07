@@ -1,4 +1,5 @@
 import react,{ useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
 import ImageList from '@mui/material/ImageList';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Paper from '@mui/material/Paper';
@@ -13,6 +14,7 @@ import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
 const PhotoGrid = () => {
 
+  const supabase = createClient("https://mtlhlvwncdtbgxcbovei.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10bGhsdnduY2R0Ymd4Y2JvdmVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDExOTQzMDQsImV4cCI6MjAxNjc3MDMwNH0.3IlU9ziCnnPsGriA9axHtA2aG4IyLox07po4okFprP8");
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -22,10 +24,19 @@ const PhotoGrid = () => {
   }));
   
   const [objects, setObjects] = useState([]);
+  const [demons, setDemons] = useState([]);
   const s3url = "https://mydemonbucket.s3.amazonaws.com/";
   let demonNum = 1;
 
-  useEffect(() => {
+  async function getDemonData() {
+   
+  const { data} = await supabase
+    .from('demons')
+    .select('*')
+    setDemons(data);
+  }
+
+  /*useEffect(() => {
     const client = new S3Client({
       region: "us-east-1",
       // Unless you have a public bucket, you'll need access to a private bucket.
@@ -51,16 +62,21 @@ const PhotoGrid = () => {
     const command = new ListObjectsCommand({ Bucket: "mydemonbucket" });
     client.send(command).then(({ Contents }) => setObjects(Contents || []));
     console.log(objects)
+  }, []); */ 
+
+  useEffect(() => {
+    getDemonData();
   }, []);
+
 // get demon data here? from db? and go through all -> if no name, then black image  src === null ? black.jpg : src.name
 //add s3url + image? 
 return (
     <Grid container rows={{ xs: 20 }} columns={{ xs: 20  }} spacing={2}>
       
-    {objects.map((o) => (
+    {demons.map((o) => (
       
-      <Grid xs={2} sm={4} md={4} key={o.ETag}> 
-        <DemonCard demonNumber={{number:demonNum++}} demonSummary={{summary: "My Other People"}} demonImage={s3url + o.Key}/>
+      <Grid xs={2} sm={4} md={4} key={o.id}> 
+        <DemonCard demonNumber={{number:o.id}} demonSummary={{summary: o.demonDescription}} demonImageURL={o.image} demonName={o.demonName}/>
         
       </Grid>
     ))}
