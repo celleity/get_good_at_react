@@ -33,6 +33,7 @@ const PhotoGrid = () => {
   const { data} = await supabase
     .from('demons')
     .select('*')
+    .order('id', { ascending: true })
     setDemons(data);
   }
 
@@ -44,7 +45,7 @@ const PhotoGrid = () => {
 // get demon data here? from db? and go through all -> if no name, then black image  src === null ? black.jpg : src.name
 //add s3url + image? 
 return (
-    <Grid container rows={{ xs: 20 }} columns={{ xs: 20  }} spacing={2}>
+    <Grid container  columns={{ xs: 20  }} spacing={2}>
       
     {demons.map((o) => (
       

@@ -5,6 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Container,Dialog  } from '@mui/material';
 import DemonImage from './DemonImage';
+import CardHeader from '@mui/material/CardHeader';
+import styles from '../styles/Home.module.css';
 
 
 export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName}) {
@@ -15,28 +17,23 @@ const handleClose = () => {
 }
 
   return (
-    <Card >
+    <Card  variant="outlined">
       <CardActionArea onClick={() => setIsOpen(true)}>
+        <CardHeader  className={styles.cardHeader}       title={demonNumber.number}  />
+       { /*<div className={styles.demonNumber}>
+          {demonNumber.number}
+  </div>*/ }
         <CardMedia
           component="img"
           height="200"
           image={demonImageURL}
           alt={demonSummary.summary}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {demonNumber.number}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-          
-          </Typography>
-        </CardContent>
       </CardActionArea>
       <Dialog   
     fullScreen
     open={isOpen}
     onClose={() => handleClose}>
-           { console.log("is it close?", handleClose)}
       <img src={demonImageURL}  alt={demonSummary.summary} >
    
         </img>
