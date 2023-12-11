@@ -45,7 +45,7 @@ const PhotoGrid = () => {
 // get demon data here? from db? and go through all -> if no name, then black image  src === null ? black.jpg : src.name
 //add s3url + image? 
 return (
-    <Grid container  columns={{ xs: 20  }} spacing={2}>
+    <Grid container  columns={{ xs: 20  }} spacing={0}>
       
     {demons.map((o) => (
       
