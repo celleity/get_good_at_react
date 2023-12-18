@@ -62,14 +62,21 @@
   max-height: 100%;
 }
 
-div.demonNumber {
+.demonNumber {
   position: absolute;
   font-size: 5rem;
-  top: 3rem;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
 }
 
+div.demonDialog{
+  display: flex;
+  flex-direction: row;
+
+}
 .cardHeader {
     margin: 0;
     padding: .5rem;
@@ -89,12 +96,10 @@ div.demonNumber {
 .MuiCardHeader-subheader{
   color:white;
 }
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
+
+
+
+
 
 .card h3 {
   margin: 0 0 1rem 0;
