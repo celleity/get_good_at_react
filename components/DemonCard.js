@@ -13,6 +13,8 @@ import CloseIcon from '@mui/icons-material/Close';
 
 export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName}) {
 
+
+
 const [isOpen, setIsOpen] = useState(false)
 const [isShown, setIsShown] = useState(false);
 
@@ -37,14 +39,18 @@ const handleLeave = () => {
 
 }
 
+const actualDemonName = (demonName === undefined) ? demonNumber.number :  demonNumber.number + " "+  demonName;
 
   return (
     <Card >
       
       <CardActionArea onClick={() => setIsOpen(true)}  onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}>
-        { isShown && ( <div className={styles.demonNumber}>
-          {demonNumber.number + " "+  demonName}
+        {
+        isShown && ( <div className={styles.demonNumber}>
+          {actualDemonName}
+          
+
         </div>) }
        
 

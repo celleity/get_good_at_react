@@ -28,12 +28,10 @@ const PhotoGrid = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [demons, setDemons] = useState([]);
   const s3url = "https://mydemonbucket.s3.amazonaws.com/";
-  let demonNum = 1;
  
   async function getDemonData() {
 
     
-   
   const { data} = await supabase
     .from('demons')
     .select('*')
@@ -50,10 +48,8 @@ const hundredDemons = useMemo(() => {
      
       const blackImg = [];
      
-     
-      
       for(let count = demons.length + 1; count <= 100; count++){
-      blackImg.push({id: count,  demonName: count, demonDescription: "this demon has not yet been immortalized", image: "https://mydemonbucket.s3.amazonaws.com/Ink+Demons/black.jpg"})
+      blackImg.push({id: count,  demonName: undefined, demonDescription: "this demon has not yet been immortalized", image: "https://mydemonbucket.s3.amazonaws.com/Ink+Demons/black.jpg"})
         
       }
       newDemons = [...demons, ...blackImg]
@@ -66,19 +62,14 @@ const hundredDemons = useMemo(() => {
   useEffect(() => {
    
     getDemonData()
-    
-
   
   }
   , []);
 
 
-
-// get demon data here? from db? and go through all -> if no name, then black image  src === null ? black.jpg : src.name
-//add s3url + image? 
 return (
 
-    <Grid container  columns={{ xs: 20  }} spacing={0}>
+    <Grid container  columns={{ xs: 20  }} spacing={0} sx={{backgroundColor: "black"}}  >
       
     {hundredDemons.map((o) => (
       <Grid xs={2} sm={4} md={4} key={o.id}> 
