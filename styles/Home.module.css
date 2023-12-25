@@ -62,14 +62,19 @@
   max-height: 100%;
 }
 
+
 .demonNumber {
   position: absolute;
-  font-size: 5rem;
+  font-size: 3rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  visibility: hidden;
+  display: block;
+  opacity: 100% !important;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+ 
 }
 
 div.demonDialog{
@@ -89,7 +94,7 @@ div.demonDialog{
     display: flex;
     align-content: center;
     flex-wrap: wrap;
-    background-color: black;
+   /* background-color: black; */
     color: white;
   
 }

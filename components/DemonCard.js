@@ -16,6 +16,9 @@ export default function DemonCard({demonNumber, demonSummary, demonImageURL, dem
 const [isOpen, setIsOpen] = useState(false)
 const [isShown, setIsShown] = useState(false);
 
+
+
+
 const handleClose = () => {
 
   setIsOpen(false)
@@ -25,26 +28,32 @@ const handleEnter = () => {
  
   setIsShown(true)
 
+ 
 }
-
 const handleLeave = () => {
  
   setIsShown(false)
 
+
 }
+
+
   return (
-    <Card  >
+    <Card >
+      
       <CardActionArea onClick={() => setIsOpen(true)}  onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}>
-  
-  { isShown && ( <div className={styles.demonNumber}>
-          {demonNumber.number}
-      </div>) }
+        { isShown && ( <div className={styles.demonNumber}>
+          {demonNumber.number + " "+  demonName}
+        </div>) }
+       
+
         <CardMedia
           component="img"
           height="200"
           image={demonImageURL}
           alt={demonSummary.summary}
+          sx={isShown ? { opacity: "50%" } : {opacity: "100%"}}
         />
       </CardActionArea>
       <Dialog   
