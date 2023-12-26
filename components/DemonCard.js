@@ -71,7 +71,7 @@ const actualDemonName = (demonName === undefined) ? demonNumber.number :  demonN
         >
         <div style={{ display: 'flex', flexDirection: 'row', }} >
           
-             <img src={demonImageURL}  alt={demonSummary.summary} style={{ width: '500px', }} />
+             <img src={demonImageURL}  alt={demonSummary.summary} style={{ width: '500px', border: "double white" }} />
             <DialogContent   sx={{
         display: 'flex',
         flexDirection: 'column',

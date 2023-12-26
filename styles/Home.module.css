@@ -145,6 +145,7 @@ div.demonDialog{
   max-height: 100vh;
   font-size: 20rem;
   padding-bottom: 20rem;
+  padding-top: 20rem;
 
 }
 
@@ -155,6 +156,12 @@ div.demonDialog{
 
   max-height: 100vh;
   font-size: 25rem;
-  padding-bottom: 15rem;
+  padding-bottom: 20rem;
+  padding-top:25rem;
+
+}
+
+.MuiGrid2-container {
+  padding-top: 20rem;
 
 }
