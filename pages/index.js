@@ -6,25 +6,63 @@ import PhotoTile from '../components/PhotoTile';
 import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
 import ImageList from '@mui/material/ImageList';
-import React, { useRef } from 'react';
-
+import React, { useRef, useState } from 'react';
+import Popover from '@mui/material/Popover';
+import { CardActionArea, Container,Dialog, DialogContent, DialogContentText, DialogTitle  } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 export default function Home() {
-  const scrollToRef = useRef();
-  const handleClickScroll = (scroll) => {
-    if (typeof window !== "undefined") {
-    const element = document.getElementById(scroll);
-    if (element) {
-      // 👇 Will scroll smoothly to the top of the next section
-      element.scrollIntoView({ behavior: 'smooth', block: "center", inline: "center" });
-    }}
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClick = () => {
+    setIsOpen(true);
   };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+
+
+
   return (
     <div className={styles.container}>
 
 <main >
+<div  > 
+  <div className={styles.about} onClick={handleClick}> What the hell is this?</div>
+  <Dialog   
+     
+     maxWidth="md"
+     open={isOpen}
+     onClose={() => handleClose}
+    
+     
+     >
+   
+       
+         <DialogContent   sx={{
+     display: 'flex',
+     flexDirection: 'row',
+     maxWidth: '500px'
+   }}>
+  
+      <DialogContentText >
 
+      This is a project I started in 2011 after reading “One! Hundred! Demons!” by Lynda Barry. I was unemployed and frequented the library since it was free and picked up the book on a whim. More than 10 years later, I am still working towards 100 demons. I go through seasons of painting these demons. Sometimes I don’t paint them for a few years, other times I paint them every day. They are what I consider minor demons; demons of the mundane. Nothing supernatural, but maybe that is what makes them even worse. I realize that others could have more terrible demons, but these are my own personal ones which occupy my mind.
+       </DialogContentText>        
+      
+     
+
+        <CloseIcon   onClick={handleClose} sx={{ cursor: "pointer"}}/>
+        </DialogContent>
+   </Dialog>
+
+ 
+</div>
       <Stack  direction="column"
   justifyContent="left"
   alignItems="stretch" spacing="12" className={styles.demons} >

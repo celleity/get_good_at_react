@@ -62,7 +62,14 @@
   max-height: 100%;
 }
 
+.MuiIconButton-root:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
 
+.MuiButtonBase-root-MuiIconButton-root{
+
+  background-color: rgba(0, 0, 0, 0);
+}
 .demonNumber {
   position: absolute;
   font-size: 3rem;
@@ -126,11 +133,14 @@ div.demonDialog{
   overflow: hidden !important;
 
 }
-
+.about {
+  display: inline-block;
+  cursor: pointer;
+}
 .demonHeader1 {
  display: flex;
  align-self: center;
- 
+ cursor: pointer;
   max-height: 100vh;
   font-size: 40rem;
   padding-bottom: 20rem;
@@ -141,7 +151,7 @@ div.demonDialog{
   display: flex;
   align-self: center;
  
-
+  cursor: pointer;
   max-height: 100vh;
   font-size: 20rem;
   padding-bottom: 20rem;
@@ -152,7 +162,7 @@ div.demonDialog{
 .demonHeader3 {
   display: flex;
   align-self: center;
- 
+  cursor: pointer;
 
   max-height: 100vh;
   font-size: 25rem;

@@ -39,7 +39,7 @@ const handleLeave = () => {
 
 }
 
-const actualDemonName = (demonName === undefined) ? demonNumber.number :  demonNumber.number + " "+  demonName;
+const actualDemonName = (demonName === undefined) ? demonNumber.number + "." :  demonNumber.number + ". "+  demonName;
 
   return (
     <Card >
@@ -80,7 +80,7 @@ const actualDemonName = (demonName === undefined) ? demonNumber.number :  demonN
        <DialogTitle  sx={{
        paddingLeft: '0px'
       }}> 
-        {demonName}
+        {actualDemonName}
        </DialogTitle>
          <DialogContentText>
   
@@ -88,17 +88,9 @@ const actualDemonName = (demonName === undefined) ? demonNumber.number :  demonN
           </DialogContentText>        
          
           </DialogContent>
-          <IconButton
-             
-             color="inherit"
-             onClick={handleClose}
-             aria-label="close"
-             sx={{alignItems: 'flex-end',
-             flexDirection: 'row',
-             flexWrap: 'wrap',
-             alignContent: 'flex-start'}}>
-             <CloseIcon/>
-           </IconButton>
+       
+           <CloseIcon   onClick={handleClose} sx={{ cursor: "pointer", paddingTop: "20px", paddingRight: "24px"}}/>
+         
            </div>
       </Dialog>
     </Card>
