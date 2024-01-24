@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import QuantumImage from '../components/QuantumImage';
-import DemonImage from '../components/DemonImage';
 import PhotoTile from '../components/PhotoTile';
 import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
