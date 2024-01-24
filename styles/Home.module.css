@@ -62,14 +62,7 @@
   max-height: 100%;
 }
 
-.MuiIconButton-root:hover {
-  background-color: rgba(0, 0, 0, 0);
-}
 
-.MuiButtonBase-root-MuiIconButton-root{
-
-  background-color: rgba(0, 0, 0, 0);
-}
 .demonNumber {
   position: absolute;
   font-size: 3rem;
@@ -136,6 +129,16 @@ div.demonDialog{
 .about {
   display: inline-block;
   cursor: pointer;
+}
+.contact {
+  display: block;
+  cursor: pointer;
+  padding-top: 1rem;
+
+}
+p.contactInfo {
+  padding: 1rem;
+  margin: 0px;
 }
 .demonHeader1 {
  display: flex;

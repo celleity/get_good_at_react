@@ -16,6 +16,7 @@ import CloseIcon from '@mui/icons-material/Close';
 export default function Home() {
 
   const [isOpen, setIsOpen] = useState(false)
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = () => {
     setIsOpen(true);
@@ -24,9 +25,13 @@ export default function Home() {
   const handleClose = () => {
     setIsOpen(false);
   };
-
-
-
+  const handlePopoverClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
 
   return (
     <div className={styles.container}>
@@ -34,6 +39,19 @@ export default function Home() {
 <main >
 <div  > 
   <div className={styles.about} onClick={handleClick}> What the hell is this?</div>
+  <br/>
+  <div className={styles.contact} onClick={handlePopoverClick}>  Contact </div>
+  <Popover
+  open={open}
+  onClose={handlePopoverClose}
+  anchorEl={anchorEl}
+  anchorOrigin={{
+    vertical: 'bottom',
+    horizontal: 'left',
+  }}
+>
+ <p className={styles.contactInfo}> Please don't </p>
+</Popover>
   <Dialog   
      
      maxWidth="md"

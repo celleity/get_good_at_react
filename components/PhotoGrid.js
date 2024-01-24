@@ -43,17 +43,17 @@ const PhotoGrid = () => {
 }
 const hundredDemons = useMemo(() => {
   let newDemons = []
-  
+  console.log(demons.image)
     if(demons.length <= 100 && !isLoading){
      
       const blackImg = [];
      
       for(let count = demons.length + 1; count <= 100; count++){
-      blackImg.push({id: count,  demonName: undefined, demonDescription: "this demon has not yet been immortalized", image: "https://mydemonbucket.s3.amazonaws.com/Ink+Demons/black.jpg"})
+      blackImg.push({id: count,  demonName: undefined, demonDescription: "this demon has not yet been immortalized", image: "black.jpg"})
         
       }
       newDemons = [...demons, ...blackImg]
-      console.log("newDemons", newDemons)
+     
     }
     return newDemons
 
@@ -77,7 +77,7 @@ return (
         
       </Grid>
     ))}
-      {  console.log(hundredDemons)}
+      
 
     </Grid>
 );
