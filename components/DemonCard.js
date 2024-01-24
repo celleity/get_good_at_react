@@ -4,7 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Container,Dialog, DialogContent, DialogContentText, DialogTitle  } from '@mui/material';
-import DemonImage from './DemonImage';
 import CardHeader from '@mui/material/CardHeader';
 import styles from '../styles/Home.module.css';
 import IconButton from '@mui/material/IconButton';
