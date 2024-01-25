@@ -27,7 +27,7 @@ const PhotoGrid = () => {
   
   const [isLoading, setIsLoading] = useState(true);
   const [demons, setDemons] = useState([]);
-  const s3url = "https://mydemonbucket.s3.amazonaws.com/";
+const s3url = "https://mydemonbucket.s3.amazonaws.com/";
  
   async function getDemonData() {
 
@@ -35,7 +35,7 @@ const PhotoGrid = () => {
   const { data} = await supabase
     .from('demons')
     .select('*')
-    .order('id', { ascending: true })
+   // .order('id', { ascending: true })
     setDemons(data)
     setIsLoading(false);
    
