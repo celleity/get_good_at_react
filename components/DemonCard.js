@@ -10,8 +10,11 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 
+
 export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName}) {
 
+
+   
 
 const [isOpen, setIsOpen] = useState(false)
 const [isShown, setIsShown] = useState(false);
@@ -39,7 +42,7 @@ const handleLeave = () => {
 
 const actualDemonName = (demonName === undefined) ? demonNumber.number + "." :  demonNumber.number + ". "+  demonName;
 let tryThis = "Ink_Demons/" + demonImageURL
-console.log("tryThis", tryThis)
+
   return (
     <Card >
       
@@ -56,6 +59,7 @@ console.log("tryThis", tryThis)
         <CardMedia
           component="img"
           height="200"
+          loading="lazy"
           image={tryThis}
           alt={demonSummary.summary}
           sx={isShown ? { opacity: "50%" } : {opacity: "100%"}}
@@ -70,7 +74,7 @@ console.log("tryThis", tryThis)
         >
         <div style={{ display: 'flex', flexDirection: 'row', }} >
           
-             <img src={tryThis}  alt={demonSummary.summary} style={{ width: '500px', border: "double white" }} />
+        <img loading="lazy" src={tryThis}  alt={demonSummary.summary} style={{ width: '500px', border: "double white" }} />
             <DialogContent   sx={{
         display: 'flex',
         flexDirection: 'column',
