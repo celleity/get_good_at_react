@@ -1,18 +1,15 @@
 import react,{ useState, useEffect, useMemo } from "react";
 import { createClient } from "@supabase/supabase-js";
-import ImageList from '@mui/material/ImageList';
+
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import DemonCard from './DemonCard';
-import {
-  ListObjectsCommand,
-  ListObjectsCommandOutput,
-  S3Client,
-} from "@aws-sdk/client-s3";
-import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+
+
 
 const PhotoGrid = () => {
+
 
 
 
@@ -27,7 +24,7 @@ const PhotoGrid = () => {
   
   const [isLoading, setIsLoading] = useState(true);
   const [demons, setDemons] = useState([]);
-const s3url = "https://mydemonbucket.s3.amazonaws.com/";
+
  
   async function getDemonData() {
 

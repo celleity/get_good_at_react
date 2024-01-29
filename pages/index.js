@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import QuantumImage from '../components/QuantumImage';
-import PhotoTile from '../components/PhotoTile';
+
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
-import ImageList from '@mui/material/ImageList';
+
 import React, { useRef, useState } from 'react';
 import Popover from '@mui/material/Popover';
-import { CardActionArea, Container,Dialog, DialogContent, DialogContentText, DialogTitle  } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
+import { ,Dialog, DialogContent, DialogContentText, DialogTitle  } from '@mui/material';
+
 import CloseIcon from '@mui/icons-material/Close';
 
 
