@@ -45,7 +45,7 @@ export default function Home() {
     horizontal: 'left',
   }}
 >
- <p className={styles}> No, please don't </p>
+<p className={styles.contactInfo}> Please don't </p>
 </Popover>
   <Dialog   
      

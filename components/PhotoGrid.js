@@ -1,8 +1,6 @@
 import react,{ useState, useEffect, useMemo } from "react";
 import { createClient } from "@supabase/supabase-js";
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import DemonCard from './DemonCard';
 
 
@@ -51,7 +49,7 @@ const hundredDemons = useMemo(() => {
   }
   , []);
 
-
+  https://res.cloudinary.com/inkdemons/image/upload/v1706288220/Ink_Demons/Acne_tvbiuc.jpg
 return (
 
     <Grid container  columns={{ xs: 20  }} spacing={0} sx={{backgroundColor: "black"}}  >
