@@ -1,14 +1,10 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
-
 import React, { useRef, useState } from 'react';
 import Popover from '@mui/material/Popover';
-import { Dialog, DialogContent, DialogContentText, DialogTitle  } from '@mui/material';
-
+import { Dialog, DialogContent, DialogContentText} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -49,7 +45,7 @@ export default function Home() {
     horizontal: 'left',
   }}
 >
- <p className={styles.contactInfo}> Please don't </p>
+ <p className={styles}> No, please don't </p>
 </Popover>
   <Dialog   
      

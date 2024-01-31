@@ -1,25 +1,16 @@
 import{ useState } from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import { CardActionArea, Container,Dialog, DialogContent, DialogContentText, DialogTitle  } from '@mui/material';
-import CardHeader from '@mui/material/CardHeader';
 import styles from '../styles/Home.module.css';
-import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 
 
 export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName}) {
 
-
-   
-
 const [isOpen, setIsOpen] = useState(false)
 const [isShown, setIsShown] = useState(false);
-
-
 
 
 const handleClose = () => {
