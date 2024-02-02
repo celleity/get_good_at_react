@@ -4,6 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea, Container,Dialog, DialogContent, DialogContentText, DialogTitle  } from '@mui/material';
 import styles from '../styles/Home.module.css';
 import CloseIcon from '@mui/icons-material/Close';
+import Image from 'next/image'
 
 
 
@@ -32,7 +33,7 @@ const handleLeave = () => {
 }
 
 const actualDemonName = (demonName === undefined) ? demonNumber.number + "." :  demonNumber.number + ". "+  demonName;
-let tryThis = "Ink_Demons/" + demonImageURL
+let tryThis = "/Ink_Demons/" + demonImageURL
 
   return (
     <Card >
@@ -50,7 +51,7 @@ let tryThis = "Ink_Demons/" + demonImageURL
         <CardMedia
           component="img"
           height="200"
-          loading="lazy"
+         
           image={tryThis}
           alt={demonSummary.summary}
           sx={isShown ? { opacity: "50%" } : {opacity: "100%"}}
@@ -65,7 +66,7 @@ let tryThis = "Ink_Demons/" + demonImageURL
         >
         <div style={{ display: 'flex', flexDirection: 'row', }} >
           
-        <img loading="lazy" src={tryThis}  alt={demonSummary.summary} style={{ width: '500px', border: "double white" }} />
+        <img  src={tryThis}  alt={demonSummary.summary} width={600} height={400} style={{ border: "double white" }} />
             <DialogContent   sx={{
         display: 'flex',
         flexDirection: 'column',
