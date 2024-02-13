@@ -50,6 +50,13 @@
   margin-top: 3rem;
 }
 */ 
+.loading {
+opacity: 50%;
+}
+.loaded {
+  filter: blur(0px);
+  transition: filter 0.2s ease;
+}
 .card {
   margin: 1rem;
   flex-basis: 45%;
@@ -77,11 +84,9 @@
  
 }
 
-div.demonDialog{
-  display: flex;
-  flex-direction: row;
 
-}
+
+
 .cardHeader {
     margin: 0;
     padding: .5rem;
