@@ -183,3 +183,88 @@ p.contactInfo {
   padding-top: 20rem;
 
 }
+@media only screen and (max-width: 360px) {
+  
+  .container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  .about {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .contact {
+    display: block;
+    cursor: pointer;
+    padding-top: 1rem;
+  
+  }
+  p.contactInfo {
+    padding: 1rem;
+    margin: 0px;
+  }
+  .demonHeader1 {
+   display: flex;
+   align-self: center;
+   cursor: pointer;
+    max-height: 100vh;
+    font-size: 50vw;
+    padding-bottom: 50%;
+    padding-top:50%;
+    padding-left:35%;
+    width: 100vw; 
+    margin: auto;
+  
+  }
+  
+  .demonHeader2 {
+    display: flex;
+    /* flex-basis: 0; */
+    /* align-self: center; */
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    /* width: 100%; */
+    max-width: 100%;
+    /* max-height: 100vh; */
+    margin: auto;
+    text-align: center;
+    min-width: 0;
+    font-size: 50vw;
+    padding-bottom: 50%;
+    padding-top: 10%;
+    padding-left: 40%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  
+  }
+  
+  .demonHeader3 {
+    display: flex;
+    /* flex-basis: 0; */
+    /* align-self: center; */
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    /* width: 100%; */
+    max-width: 100%;
+    /* max-height: 100vh; */
+    margin: auto;
+    text-align: center;
+    min-width: 0;
+    font-size: 50vw;
+    padding-bottom: 50%;
+    padding-top: 10%;
+    padding-left: 40%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  
+  }
+
+
+
+}

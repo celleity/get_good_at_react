@@ -6,12 +6,14 @@ import React, { useRef, useState } from 'react';
 import Popover from '@mui/material/Popover';
 import { Dialog, DialogContent, DialogContentText} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 export default function Home() {
 
   const [isOpen, setIsOpen] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null);
+
 
   const handleClick = () => {
     setIsOpen(true);
@@ -29,9 +31,9 @@ export default function Home() {
   const open = Boolean(anchorEl);
 
   return (
-    <div className={styles.container}>
-
-<main >
+  
+  
+<main style={{width: "100%"}}>
 <div  > 
   <div className={styles.about} onClick={handleClick}> What the hell is this?</div>
   <br/>
@@ -89,6 +91,5 @@ export default function Home() {
 
      
 
-    </div>
   )
 }
