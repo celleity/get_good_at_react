@@ -1,4 +1,4 @@
-import { Carousel } from "react-responsive-carousel";
+
 import {useDemonImages} from './useDemonImages';
 import react,{ useState, useEffect, useMemo } from "react";
 import { buildUrl } from 'cloudinary-build-url';
