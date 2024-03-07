@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css';
 import CloseIcon from '@mui/icons-material/Close';
 import { buildUrl } from 'cloudinary-build-url';
 import { Image } from 'mui-image'
+import  DemonCarousel from './DemonCarousel';
 
 export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName}) {
   const urlThumb = buildUrl('Ink_Demons/'+ demonImageURL, {
@@ -90,16 +91,16 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
       </CardActionArea>
       <Dialog   
      
-        maxWidth="lg"
+       maxWidth='xl'
         open={isOpen}
         onClose={() => handleClose}
-       
-        >
+     
+        >  
+        
+  
         <div className="dialogImg" style={{ display: 'flex', flexDirection: 'row', overflowY: 'clip' }} >
      
-      
-      <Image  src={urlBigger}  showLoading  alt={demonSummary.summary}   style={{ border: "double white" }} /> 
-        
+   
   
           
            <DialogContent   sx={{
@@ -107,15 +108,9 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
         flexDirection: 'column',
        
       }}>
-       <DialogTitle  sx={{
-       paddingLeft: '0px'
-      }}> 
-        {actualDemonName}
-       </DialogTitle>
-         <DialogContentText  >
-  
-         {demonSummary.summary}
-          </DialogContentText >        
+
+       <DemonCarousel index={demonNumber.number}/> 
+            
          
           </DialogContent>
        

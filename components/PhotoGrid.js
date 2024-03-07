@@ -17,7 +17,7 @@ return (
       
     {demonImages.map((o) => (
       <Grid xs={1} sm={1} md={4} key={o.id}> 
-        <DemonCard demonNumber={{number:o.id}} demonSummary={{summary: o.demonDescription}} demonImageURL={o.image} demonName={o.demonName}/>
+        <DemonCard demonNumber={{number:o.demonNumber}} demonSummary={{summary: o.demonDescription}} demonImageURL={o.image} demonName={o.demonName}/>
   
       </Grid>
     ))}

@@ -15,7 +15,7 @@ const supabase = createClient("https://mtlhlvwncdtbgxcbovei.supabase.co", "eyJhb
   const { data} = await supabase
     .from('demons')
     .select('*')
-    .order('id', { ascending: true })
+    .order('demonNumber', { ascending: true })
     setDemons(data)
     setIsLoading(false);
    
