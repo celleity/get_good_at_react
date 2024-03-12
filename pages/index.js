@@ -65,7 +65,7 @@ export default function Home() {
      maxWidth: '500px'
    }}>
   
-      <DialogContentText >
+      <DialogContentText sx={{padding:"10px"}}>
 
       This is a project I started in 2011 after reading “One! Hundred! Demons!” by Lynda Barry. I was unemployed and frequented the library since it was free and picked up the book on a whim. More than 10 years later, I am still working towards 100 demons. I go through seasons of painting these demons. Sometimes I don’t paint them for a few years, other times I paint them every day. They are what I consider minor demons; demons of the mundane. Nothing supernatural, but maybe that is what makes them even worse. I realize that others could have more terrible demons, but these are my own personal ones which occupy my mind.
        </DialogContentText>        

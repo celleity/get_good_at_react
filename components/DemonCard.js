@@ -94,11 +94,12 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
        maxWidth='xl'
         open={isOpen}
         onClose={() => handleClose}
+       
      
         >  
         
-  
-        <div className="dialogImg" style={{ display: 'flex', flexDirection: 'row', overflowY: 'clip' }} >
+        <CloseIcon   onClick={handleClose} sx={{ cursor: "pointer", paddingTop: "20px", paddingRight: "24px", alignSelf: "flex-end"}}/>  
+        <div className="dialogImg" style={{ display: {lg: 'flex'}, flexDirection: 'row', overflowY: 'clip' }} >
      
    
   
@@ -106,6 +107,7 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
            <DialogContent   sx={{
         display: 'flex',
         flexDirection: 'column',
+        
        
       }}>
 
@@ -114,7 +116,7 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
          
           </DialogContent>
        
-           <CloseIcon   onClick={handleClose} sx={{ cursor: "pointer", paddingTop: "20px", paddingRight: "24px"}}/>
+           
          
            </div>
       </Dialog>

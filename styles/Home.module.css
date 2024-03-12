@@ -73,7 +73,16 @@ opacity: 50%;
   position: relative;
   max-width: 100%;
   overflow: hidden;
+  display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+
 }
+
+ 
 
 .carousel__btnPrev:hover {
   background-color: rgba(0, 0, 0, 0.8);
@@ -119,7 +128,8 @@ opacity: 50%;
 
 .demonText {
   padding-top: 10px;
-  max-width: 40vw;
+  max-width: 35vw;
+ 
 
 }
 .demonNumber {
@@ -238,5 +248,33 @@ p.contactInfo {
 }
 
 
+@media all and (max-width: 400px){
+  .carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  display: block;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 
+    
+  }
+  .carousel__img {
+    max-width: 70vw;
+    object-fit: contain;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .demonText {
+    padding-top: 10px;
+   max-width: 70vw;
+   
+  
+  }
+}
 

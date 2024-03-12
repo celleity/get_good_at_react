@@ -1,5 +1,6 @@
 
 import {useDemonImages} from './useDemonImages';
+import Typography from '@mui/material/Typography';
 import react,{ useState, useEffect, useMemo } from "react";
 import { buildUrl } from 'cloudinary-build-url';
 import { Image } from 'mui-image'
@@ -44,9 +45,9 @@ const nextSlide = () => {
   console.log(index, demonArray[index-1])
 return (
     <div className={styles.carousel} >
-      <div className={styles.demonTitle}> 
+      <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px"}}> 
       {demonArray[activeIndex-1]?.name === undefined ? "unknown for know" : demonArray[activeIndex-1].name }
-      </div>
+      </Typography>
       <Button onClick={prevSlide} className={styles.carousel__btnPrev}>
         &lt;
       </Button>
@@ -54,15 +55,14 @@ return (
         src={demonArray[activeIndex-1]?.image === undefined ? "test" :  demonArray[activeIndex-1].image }
         alt={`Slide ${activeIndex}`}
         className={styles.carousel__img }
-        height='50vh'
-        width='100%'
-        sx={{ maxHeight: "100%",  objectFit: "contain !important"}} 
+        sx={{ maxHeight: "100%",  objectFit: "contain !important",  display: { sm: 'none', lg: 'flex' }, width: {sm: '75vw', lg: '50vw'}}}
+        
 
       />
-          <div className={styles.demonText}  >
+          <Typography className={styles.demonText} align="center" variant="body1" sx={{width: { lg: '35vw}'}}}   >
   
           {demonArray[activeIndex-1]?.summary === undefined ? "" :  demonArray[activeIndex-1].summary }
-   </div > 
+   </Typography > 
       <Button onClick={nextSlide} className={styles.carousel__btnNext}>
         &gt;
       </Button>
