@@ -4,7 +4,8 @@ import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
 import React, { useRef, useState } from 'react';
 import Popover from '@mui/material/Popover';
-import { Dialog, DialogContent, DialogContentText} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Accordion, AccordionDetails, AccordionSummary, Dialog, DialogContent, DialogContentText} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
@@ -35,6 +36,7 @@ export default function Home() {
   
 <main style={{width: "100%"}}>
 <div  > 
+
   <div className={styles.about} onClick={handleClick}> What the hell is this?</div>
   <br/>
   <div className={styles.contact} onClick={handlePopoverClick}>  Contact </div>
@@ -81,8 +83,8 @@ export default function Home() {
       <Stack  direction="column"
   justifyContent="left"
   alignItems="stretch" spacing="12" className={styles.demons} >
-      <a className={styles.demonHeader1} onClick={() => document.getElementById("header-2").scrollIntoView(({ behavior: 'smooth', block: "center", inline: "center" }))} id="header-1"> ONE!</a>
-      <div className={styles.demonHeader2} id="header-2" onClick={() => document.getElementById("header-3").scrollIntoView(({ behavior: 'smooth', block: "center", inline: "center" }))}> HUNDRED!</div>
+      <a className={styles.demonHeader1} onClick={() => document.getElementById("header-2").scrollIntoView(({ behavior: 'instant', block: "center", inline: "center" }))} id="header-1"> ONE!</a>
+      <div className={styles.demonHeader2} id="header-2" onClick={() => document.getElementById("header-3").scrollIntoView(({ behavior: 'instant', block: "center", inline: "center" }))}> HUNDRED!</div>
       <div className={styles.demonHeader3} id="header-3"  onClick={() => document.getElementById("demons").scrollIntoView(({ behavior: 'smooth', block: "start", inline: "start" }))}> DEMONS!</div>
       </Stack>
     <div id="demons"/> 

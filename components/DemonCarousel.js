@@ -45,7 +45,7 @@ const nextSlide = () => {
   console.log(index, demonArray[index-1])
 return (
     <div className={styles.carousel} >
-      <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px"}}> 
+      <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px", textAlign: "center"}}> 
       {demonArray[activeIndex-1]?.name === undefined ? "unknown for know" : demonArray[activeIndex-1].name }
       </Typography>
       <Button onClick={prevSlide} className={styles.carousel__btnPrev}>

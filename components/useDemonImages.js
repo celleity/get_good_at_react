@@ -28,7 +28,7 @@ const hundredDemons = useMemo(() => {
       const blackImg = [];
      
       for(let count = demons.length + 1; count <= 100; count++){
-      blackImg.push({id: count,  demonName: undefined, demonDescription: "this demon has not yet been immortalized", image: 'black.jpg'})
+      blackImg.push({id: count,  demonName: "Unknown Demon", demonDescription: "this demon has not yet been immortalized", image: 'black.jpg', demonNumber: count})
         
       }
       newDemons = [...demons, ...blackImg]
