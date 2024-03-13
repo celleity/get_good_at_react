@@ -48,7 +48,7 @@ return (
       <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px", textAlign: "center"}}> 
       {demonArray[activeIndex-1]?.name === undefined ? "unknown for know" : demonArray[activeIndex-1].name }
       </Typography>
-      <Button onClick={prevSlide} className={styles.carousel__btnPrev}>
+      <Button onClick={prevSlide} className={styles.carousel__btnPrev} sx={{position: "absolute"}}>
         &lt;
       </Button>
       <Image
@@ -63,7 +63,7 @@ return (
   
           {demonArray[activeIndex-1]?.summary === undefined ? "" :  demonArray[activeIndex-1].summary }
    </Typography > 
-      <Button onClick={nextSlide} className={styles.carousel__btnNext}>
+      <Button onClick={nextSlide} className={styles.carousel__btnNext} sx={{position: "absolute"}}>
         &gt;
       </Button>
     </div>
