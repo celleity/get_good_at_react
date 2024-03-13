@@ -85,10 +85,10 @@ opacity: 50%;
  
 
 .carousel__btnPrev:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 .carousel__btnNext:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 .carousel__btnPrev {
   left: 0;
@@ -96,27 +96,25 @@ opacity: 50%;
   top: 50%;
   transform: translateY(-50%);
  /* background-color: rgba(0, 0, 0, 0.5); */
-  color: white;
-  font-size: 1.5rem;
-  border: none;
-  padding: 1rem;
+  color: white !important;
+  padding: 1rem !important;
   cursor: pointer;
   z-index: 1;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s !important;
 }
 .carousel__btnNext {
   right: 0;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) !important;
   /* background-color: rgba(0, 0, 0, 0.5); */
-  color: white;
-  font-size: 1.5rem;
+  color: white !important;
+  font-size: 1.5rem !important;
   border: none;
-  padding: 1rem;
+  padding: 1rem !important;
   cursor: pointer;
   z-index: 1;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s !important;
 }
 .carousel__img {
   width: 100%;
