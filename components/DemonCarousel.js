@@ -29,24 +29,24 @@ let imageURL = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,
 
  //const actualDemonName = (demonName === undefined) ? demonNumber.number + "." :  demonNumber.number + ". "+  demonName;
 const [activeIndex, setActiveIndex] = useState(index);
-
+let test = "";
 const nextSlide = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === demonArray.length - 1 ? 0 : prevIndex + 1
+      prevIndex === demonArray.length - 1 ? 1 : prevIndex + 1
     );
   };
   const prevSlide = () => {
     
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? demonArray.length - 1 : prevIndex - 1
+      prevIndex === 1 ? demonArray.length - 1 : prevIndex - 1
     );
   };
 
-  console.log(index, demonArray[index-1])
+  console.log(index, activeIndex, activeIndex-1, demonArray.length)
 return (
     <div className={styles.carousel} >
       <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px", textAlign: "center"}}> 
-      {demonArray[activeIndex-1]?.name === undefined ? "unknown for know" : demonArray[activeIndex-1].name }
+      {demonArray[activeIndex-1]?.name === undefined ? "This demon is still unknown" : demonArray[activeIndex-1].name }
       </Typography>
       <Button onClick={prevSlide} className={styles.carousel__btnPrev} sx={{position: "absolute"}}>
         &lt;
