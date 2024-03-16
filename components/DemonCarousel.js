@@ -42,7 +42,6 @@ const nextSlide = () => {
     );
   };
 
-  console.log(index, activeIndex, activeIndex-1, demonArray.length)
 return (
     <div className={styles.carousel} >
       <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px", textAlign: "center"}}> 

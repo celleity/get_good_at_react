@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import Typography from '@mui/material/Typography';
 import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
 import React, { useRef, useState } from 'react';
@@ -49,7 +50,7 @@ export default function Home() {
     horizontal: 'left',
   }}
 >
-<p className={styles.contactInfo}> Please don't </p>
+<Typography className={styles.contactInfo}> Please don't </Typography>
 </Popover>
   <Dialog   
      
@@ -68,8 +69,9 @@ export default function Home() {
    }}>
   
       <DialogContentText sx={{padding:"10px"}}>
-
+      <Typography variant="body1"  sx={{padding: "10px", textAlign: "center"}}> 
       This is a project I started in 2011 after reading “One! Hundred! Demons!” by Lynda Barry. I was unemployed and frequented the library since it was free and picked up the book on a whim. More than 10 years later, I am still working towards 100 demons. I go through seasons of painting these demons. Sometimes I don’t paint them for a few years, other times I paint them every day. They are what I consider minor demons; demons of the mundane. Nothing supernatural, but maybe that is what makes them even worse. I realize that others could have more terrible demons, but these are my own personal ones which occupy my mind.
+       </Typography>
        </DialogContentText>        
       
      
