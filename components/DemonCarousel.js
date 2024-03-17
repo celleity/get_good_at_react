@@ -2,6 +2,11 @@
 import {useDemonImages} from './useDemonImages';
 import Typography from '@mui/material/Typography';
 import react,{ useState, useEffect, useMemo } from "react";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from '@mui/material/styles';
 import { buildUrl } from 'cloudinary-build-url';
 import { Image } from 'mui-image'
 import Button from '@mui/material/Button';
@@ -9,6 +14,8 @@ import styles from '../styles/Home.module.css';
 
 const  DemonCarousel  = ({ index }) => { 
 
+  let theme = createTheme();
+  theme = responsiveFontSizes(theme);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,24 +51,29 @@ const nextSlide = () => {
 
 return (
     <div className={styles.carousel} >
-      <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px", textAlign: "center"}}> 
+         <ThemeProvider theme={theme}>
+      <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px", textAlign: "center", fontSize: {sm:'8vw', lg: '4vw'} }}> 
       {demonArray[activeIndex-1]?.name === undefined ? "This demon is still unknown" : demonArray[activeIndex-1].name }
       </Typography>
+      </ThemeProvider>
       <Button onClick={prevSlide} className={styles.carousel__btnPrev} sx={{position: "absolute"}}>
         &lt;
       </Button>
       <Image
-        src={demonArray[activeIndex-1]?.image === undefined ? "test" :  demonArray[activeIndex-1].image }
+        src={demonArray[activeIndex-1]?.image === undefined ? "black.jpg" :  demonArray[activeIndex-1].image }
         alt={`Slide ${activeIndex}`}
         className={styles.carousel__img }
-        sx={{ maxHeight: "100%",  objectFit: "contain !important",  display: { sm: 'none', lg: 'flex' }, width: {sm: '75vw', lg: '50vw'}}}
+        width={{sm: 250, lg: 600}}
+        sx={{ maxHeight: "80%",  objectFit: "contain !important",  display: { sm: 'none', lg: 'flex' }, width: {sm: '75vw', lg: '600px'}}}
         
 
       />
-          <Typography className={styles.demonText} align="center" variant="body1" sx={{width: { lg: '35vw}'}}}   >
+        <ThemeProvider theme={theme}>
+          <Typography className={styles.demonText} align="center" variant="body1" sx={{width: { lg: '35vw}'}, fontSize: {sm: '1rem' }}}   >
   
           {demonArray[activeIndex-1]?.summary === undefined ? "" :  demonArray[activeIndex-1].summary }
    </Typography > 
+   </ThemeProvider>
       <Button onClick={nextSlide} className={styles.carousel__btnNext} sx={{position: "absolute"}}>
         &gt;
       </Button>

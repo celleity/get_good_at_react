@@ -93,7 +93,7 @@ opacity: 50%;
 .carousel__btnPrev {
   left: 0;
   position: absolute;
-  top: 50%;
+  top: 50vh;
   transform: translateY(-50%);
  /* background-color: rgba(0, 0, 0, 0.5); */
   color: white !important;
@@ -105,7 +105,7 @@ opacity: 50%;
 .carousel__btnNext {
   right: 0;
   position: absolute;
-  top: 50%;
+  top: 50vh;
   transform: translateY(-50%) !important;
   /* background-color: rgba(0, 0, 0, 0.5); */
   color: white !important;
@@ -126,7 +126,7 @@ opacity: 50%;
 
 .demonText {
   padding-top: 10px;
-  max-width: 35vw;
+  max-width: max-content;
  
 
 }
