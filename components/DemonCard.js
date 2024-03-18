@@ -68,7 +68,7 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
 
 
   return (
-    <Card >
+    <Card square={true}>
       
       <CardActionArea onClick={() => setIsOpen(true)}  onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}>
@@ -90,10 +90,12 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
         />
       </CardActionArea>
       <Dialog   
-     
-       maxWidth='xl'
+
+        maxWidth='lg'
+        fullWidth='true'
         open={isOpen}
         onClose={() => handleClose}
+        sx={{height: {lg: '100%'}}}
        
      
         >  
