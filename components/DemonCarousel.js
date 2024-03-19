@@ -59,6 +59,7 @@ return (
       <Button onClick={prevSlide} className={styles.carousel__btnPrev} sx={{position: "absolute"}}>
         &lt;
       </Button>
+      <div className={styles.demonContent}> 
       <Image
         src={demonArray[activeIndex-1]?.image === undefined ? "black.jpg" :  demonArray[activeIndex-1].image }
         alt={`Slide ${activeIndex}`}
@@ -74,6 +75,7 @@ return (
           {demonArray[activeIndex-1]?.summary === undefined ? "" :  demonArray[activeIndex-1].summary }
    </Typography > 
    </ThemeProvider>
+   </div>
       <Button onClick={nextSlide} className={styles.carousel__btnNext} sx={{position: "absolute"}}>
         &gt;
       </Button>

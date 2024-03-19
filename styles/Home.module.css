@@ -122,11 +122,22 @@ opacity: 50%;
   height: auto;
   display: block;
   transition: transform 0.3s ease-in-out;
+  flex: 2 1 0; 
+}
+.demonContent{
+  display: flex;
+
+
 }
 
+
+
+
 .demonText {
-  padding-top: 10px;
-  max-width: max-content;
+  padding-left: 2rem;
+  max-width: 40%;
+  width: 40vw;
+  flex: 1 1 0;
  
 
 }
@@ -271,8 +282,19 @@ p.contactInfo {
   .demonText {
     padding-top: 10px;
    max-width: 70vw;
+   width: fit-content;
    
   
   }
-}
 
+}
+@media all and (max-width: 800px){
+  .demonContent{
+    display: flex;
+    flex-direction: column;
+    
+  
+  
+  }
+  
+}

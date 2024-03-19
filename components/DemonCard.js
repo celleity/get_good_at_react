@@ -93,9 +93,10 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
 
         maxWidth='lg'
         fullWidth='true'
+        fullScreen={false}
         open={isOpen}
         onClose={() => handleClose}
-        sx={{height: {lg: '100%'}}}
+        sx={{height: {lg: '80%'}}}
        
      
         >  
@@ -109,6 +110,7 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
            <DialogContent   sx={{
         display: 'flex',
         flexDirection: 'column',
+        height:'80%'
         
        
       }}>
