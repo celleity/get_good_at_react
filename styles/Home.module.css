@@ -197,7 +197,11 @@ opacity: 50%;
   height: 1em;
 }
 
+.selectButton::before,.selectButton::after  {
+  border-bottom: none;
 
+
+}
 .css-1j1gakv-MuiImageList-root {
   overflow: hidden !important;
 

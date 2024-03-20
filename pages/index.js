@@ -3,8 +3,11 @@ import styles from '../styles/Home.module.css';
 import Typography from '@mui/material/Typography';
 import PhotoGrid from '../components/PhotoGrid';
 import Stack from '@mui/material/Stack';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Accordion, AccordionDetails, AccordionSummary, Dialog, DialogContent, DialogContentText} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -15,23 +18,46 @@ export default function Home() {
 
   const [isOpen, setIsOpen] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorElMenu, setAnchorElMenu] = useState(null)
+  const [sortBy, setSortBy] = useState(null)
 
+  const open = Boolean(anchorEl);
+  const openMenu = Boolean(anchorElMenu);
 
   const handleClick = () => {
     setIsOpen(true);
   };
+  const handleMenuClick = (event) => {
+   
+    setAnchorElMenu(event.currentTarget);
+  };
 
+  const handleMenuClose = () => {
+    setAnchorElMenu(null)
+
+  }
   const handleClose = () => {
     setIsOpen(false);
   };
   const handlePopoverClick = (event) => {
+    
     setAnchorEl(event.currentTarget);
   };
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-  const open = Boolean(anchorEl);
 
+  const handleSort = (sort) => {
+    console.log(sort)
+    setSortBy(sort)
+    handleMenuClose();
+
+  }
+  useEffect(() => {
+ console.log("this does change or trigger")
+  }, [sortBy]);
+
+  
   return (
   
   
@@ -90,7 +116,7 @@ export default function Home() {
       <div className={styles.demonHeader3} id="header-3"  onClick={() => document.getElementById("demons").scrollIntoView(({ behavior: 'smooth', block: "start", inline: "start" }))}> DEMONS!</div>
       </Stack>
     <div id="demons"/> 
-      <PhotoGrid />
+      <PhotoGrid sortBy={sortBy}/>
      </main>
 
      

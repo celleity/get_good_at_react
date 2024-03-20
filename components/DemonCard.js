@@ -8,7 +8,7 @@ import { buildUrl } from 'cloudinary-build-url';
 import { Image } from 'mui-image'
 import  DemonCarousel from './DemonCarousel';
 
-export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName}) {
+export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName, sortBy, setSortBy, index}) {
   const urlThumb = buildUrl('Ink_Demons/'+ demonImageURL, {
     cloud: {
       cloudName: 'inkdemons',
@@ -115,7 +115,7 @@ let CDNUrl = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,g_auto,h
        
       }}>
 
-       <DemonCarousel index={demonNumber.number}/> 
+       <DemonCarousel index={index} sortBy={sortBy} setSortBy={setSortBy} /> 
             
          
           </DialogContent>

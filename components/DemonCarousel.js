@@ -12,12 +12,20 @@ import { Image } from 'mui-image'
 import Button from '@mui/material/Button';
 import styles from '../styles/Home.module.css';
 
-const  DemonCarousel  = ({ index }) => { 
+const  DemonCarousel  = ({ index, sortBy, setSortBy, images }) => { 
 
   let theme = createTheme();
   theme = responsiveFontSizes(theme);
 
   const [isLoading, setIsLoading] = useState(true);
+  setSortBy(sortBy)
+  console.log('this is the carsousel', sortBy, setSortBy)
+  const sortMethods = {
+    oldest: { method: (a, b) => (a.demonNumber - b.demonNumber) },
+    newest: { method: (a, b) => (b.demonNumber - a.demonNumber)  },
+    saddest: { method: (a, b) => (a.sad - b.sad) },
+    happiest: { method: (a, b) => (b.sad - a.sad) },
+  };
 
 // index as prop, sent in by dialog
 const demonImages = useDemonImages();
@@ -25,27 +33,39 @@ const demonImages = useDemonImages();
 const demonArray = []; 
 let imageURL = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w_600,q_auto,f_auto/Ink_Demons/';
 
- demonImages.map((o) => (
+ demonImages.sort(sortMethods[sortBy].method).map((o) => (
  
   demonArray.push({name: o.demonName, image: imageURL + o.image, summary: o.demonDescription, number: o.demonNumber  } )
  )
  
  );
- 
- 
+ //useEffect for sortBy?
 
+ useEffect(() => {
+console.log('useEffect has been updated')
+  demonImages.sort(sortMethods[sortBy].method).map((o) => (
+ 
+    demonArray.push({name: o.demonName, image: imageURL + o.image, summary: o.demonDescription, number: o.demonNumber  } )
+   ));
+
+}
+
+, [sortBy]);
+ 
+console.log('carousel arrary', demonArray, 'index', index)
  //const actualDemonName = (demonName === undefined) ? demonNumber.number + "." :  demonNumber.number + ". "+  demonName;
 const [activeIndex, setActiveIndex] = useState(index);
 let test = "";
 const nextSlide = () => {
+  console.log('is this next doing anything?', activeIndex, demonArray.length)
     setActiveIndex((prevIndex) =>
-      prevIndex === demonArray.length - 1 ? 1 : prevIndex + 1
+      prevIndex === demonArray.length - 1 ? 0 : prevIndex + 1
     );
   };
   const prevSlide = () => {
-    
+    console.log('is this doing anything?', activeIndex)
     setActiveIndex((prevIndex) =>
-      prevIndex === 1 ? demonArray.length - 1 : prevIndex - 1
+      prevIndex === 0 ? demonArray.length - 1 : prevIndex - 1
     );
   };
 
@@ -53,7 +73,7 @@ return (
     <div className={styles.carousel} >
          <ThemeProvider theme={theme}>
       <Typography variant="h3" className={styles.demonTitle} sx={{padding: "10px", textAlign: "center", fontSize: {sm:'8vw', lg: '4vw'} }}> 
-      {demonArray[activeIndex-1]?.name === undefined ? "This demon is still unknown" : demonArray[activeIndex-1].name }
+      {demonArray[activeIndex]?.name === undefined ? "This demon is still unknown" : demonArray[activeIndex].name}
       </Typography>
       </ThemeProvider>
       <Button onClick={prevSlide} className={styles.carousel__btnPrev} sx={{position: "absolute"}}>
@@ -61,7 +81,7 @@ return (
       </Button>
       <div className={styles.demonContent}> 
       <Image
-        src={demonArray[activeIndex-1]?.image === undefined ? "black.jpg" :  demonArray[activeIndex-1].image }
+        src={demonArray[activeIndex]?.image === undefined ? "black.jpg" :  demonArray[activeIndex].image }
         alt={`Slide ${activeIndex}`}
         className={styles.carousel__img }
         width={{sm: 250, lg: 600}}
@@ -72,7 +92,7 @@ return (
         <ThemeProvider theme={theme}>
           <Typography className={styles.demonText} align="center" variant="body1" sx={{width: { lg: '35vw}'}, fontSize: {sm: '1rem' }}}   >
   
-          {demonArray[activeIndex-1]?.summary === undefined ? "" :  demonArray[activeIndex-1].summary }
+          {demonArray[activeIndex]?.summary === undefined ? demonArray[activeIndex]?.number :  demonArray[activeIndex].summary }
    </Typography > 
    </ThemeProvider>
    </div>
