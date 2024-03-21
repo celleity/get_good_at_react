@@ -23,8 +23,8 @@ const  DemonCarousel  = ({ index, sortBy, setSortBy, images }) => {
   const sortMethods = {
     oldest: { method: (a, b) => (a.demonNumber - b.demonNumber) },
     newest: { method: (a, b) => (b.demonNumber - a.demonNumber)  },
-    saddest: { method: (a, b) => (a.sadRating - b.sadRating) },
-    happiest: { method: (a, b) => (b.sadRating - a.sadRating) },
+    saddest: { method: (a, b) => (b.sadRating - a.sadRating) },
+    happiest: { method: (a, b) => (a.sadRating - b.sadRating) },
   };
 
 // index as prop, sent in by dialog
