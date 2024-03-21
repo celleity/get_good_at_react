@@ -36,8 +36,8 @@ const demonImages = useDemonImages();
 const sortMethods = {
   oldest: { method: (a, b) => (a.demonNumber - b.demonNumber) },
   newest: { method: (a, b) => (b.demonNumber - a.demonNumber)  },
-  saddest: { method: (a, b) => (a.sad - b.sad) },
-  happiest: { method: (a, b) => (b.sad - a.sad) },
+  saddest: { method: (a, b) => (b.sadRating - a.sadRating) },
+  happiest: { method: (a, b) => (a.sadRating - b.sadRating) },
 };
 const handleSort = (event) => {
   console.log('this is from photogrid', demonImages)

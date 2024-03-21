@@ -23,8 +23,8 @@ const  DemonCarousel  = ({ index, sortBy, setSortBy, images }) => {
   const sortMethods = {
     oldest: { method: (a, b) => (a.demonNumber - b.demonNumber) },
     newest: { method: (a, b) => (b.demonNumber - a.demonNumber)  },
-    saddest: { method: (a, b) => (a.sad - b.sad) },
-    happiest: { method: (a, b) => (b.sad - a.sad) },
+    saddest: { method: (a, b) => (a.sadRating - b.sadRating) },
+    happiest: { method: (a, b) => (b.sadRating - a.sadRating) },
   };
 
 // index as prop, sent in by dialog
@@ -35,7 +35,7 @@ let imageURL = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,
 
  demonImages.sort(sortMethods[sortBy].method).map((o) => (
  
-  demonArray.push({name: o.demonName, image: imageURL + o.image, summary: o.demonDescription, number: o.demonNumber  } )
+  demonArray.push({name: o.demonName, image: imageURL + o.image, summary: o.demonDescription, number: o.demonNumber, sadRating: o.sadRating  } )
  )
  
  );
@@ -45,7 +45,7 @@ let imageURL = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,
 console.log('useEffect has been updated')
   demonImages.sort(sortMethods[sortBy].method).map((o) => (
  
-    demonArray.push({name: o.demonName, image: imageURL + o.image, summary: o.demonDescription, number: o.demonNumber  } )
+    demonArray.push({name: o.demonName, image: imageURL + o.image, summary: o.demonDescription, number: o.demonNumber,sadRating: o.sadRating  } )
    ));
 
 }
