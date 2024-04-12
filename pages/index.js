@@ -1,125 +1,159 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+
 import Typography from '@mui/material/Typography';
-import PhotoGrid from '../components/PhotoGrid';
-import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+
 import React, { useEffect, useRef, useState } from 'react';
-import Popover from '@mui/material/Popover';
+
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Accordion, AccordionDetails, AccordionSummary, Dialog, DialogContent, DialogContentText} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import ProjectGrid from '../components/ProjectGrid';
 
 export default function Home() {
-
-  const [isOpen, setIsOpen] = useState(false)
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [anchorElMenu, setAnchorElMenu] = useState(null)
-  const [sortBy, setSortBy] = useState(null)
-
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const openMenu = Boolean(anchorElMenu);
-
-  const handleClick = () => {
-    setIsOpen(true);
-  };
-  const handleMenuClick = (event) => {
-   
-    setAnchorElMenu(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorElMenu(null)
-
-  }
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-  const handlePopoverClick = (event) => {
-    
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  //create or edit clicks to hide grids by document.getElementById('dip').hidden = true
+  //or make this an accordian menu thing
+  const options = [
+    'making art',
+    'sewing clothes',
+    'who?',
+    'experimenting',
+    'inspired'
+  ];
+  const ids = [
+    'art',
+    'sew',
+    'who',
+    'experiment',
+    'inspired'
+  ];
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+
   };
-  const handlePopoverClose = () => {
+
+  const handleMenuItemClick = (event, index) => {
+ /*   const divs = document.querySelectorAll('#grids'); // add wild card to get all grids
+    divs.forEach(div => { //if # = current selected, hidden = false. otherwise, true
+      console.log(div)
+      
+    }) */
+    setSelectedIndex(index);
+   // console.log(divs)
+
+   // document.getElementsByClassName(options[index]).hidden = false
+    setAnchorEl(null);
+  };
+  const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const handleSort = (sort) => {
-    console.log(sort)
-    setSortBy(sort)
-    handleMenuClose();
 
-  }
-  useEffect(() => {
- console.log("this does change or trigger")
-  }, [sortBy]);
+useEffect(() => {
+  
+   const divs = document.querySelectorAll('.grids'); // add wild card to get all grids
+   let gridItems = Array.from(divs, (div) => div.childNodes);
+
+// console.log(gridItems)
+   
+   let i = 0;
+    divs.forEach(div => { //if # = current selected, hidden = false. otherwise, true
+     
+      
+      if(div.className.includes( ids[selectedIndex]) ) {
+      
+      div.hidden = false
+      for (let i = 0; i < div.childElementCount; i++) {
+
+      div.childNodes[i].hidden = false;
+
+     
+      }
+      } 
+  
+       else {
+        
+        div.hidden = true
+        for (let i = 0; i < div.childElementCount; i++) {
+         
+          div.childNodes[i].hidden = true;
+      
+        }
+       // gridItems.forEach((item) => console.log('hidden', item))
+   
+       }
+    }) 
+
+
+   
+
+}, ( [selectedIndex]))
+
+
+  const handleSort = (event) => {
 
   
+    setSorted(event.target.value)
+   
+  
+  }
+
+
+const image = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w_600,q_auto,f_auto/Ink_Demons/love.jpg'
+
   return (
   
   
-<main style={{width: "100%"}}>
-<div  > 
-
-  <div className={styles.about} onClick={handleClick}> What the hell is this?</div>
-  <br/>
-  <div className={styles.contact} onClick={handlePopoverClick}>  Contact </div>
-  <Popover
-  open={open}
-  onClose={handlePopoverClose}
-  anchorEl={anchorEl}
-  anchorOrigin={{
-    vertical: 'bottom',
-    horizontal: 'left',
-  }}
->
-<Typography className={styles.contactInfo}> Please don't </Typography>
-</Popover>
-  <Dialog   
-     
-     maxWidth="md"
-     open={isOpen}
-     onClose={() => handleClose}
-    
-     
-     >
-   
-       
-         <DialogContent   sx={{
-     display: 'flex',
-     flexDirection: 'row',
-     maxWidth: '500px'
-   }}>
-  
-      <DialogContentText sx={{padding:"10px"}}>
-      <Typography variant="body1"  sx={{padding: "10px", textAlign: "center"}}> 
-      This is a project I started in 2011 after reading “One! Hundred! Demons!” by Lynda Barry. I was unemployed and frequented the library since it was free and picked up the book on a whim. More than 10 years later, I am still working towards 100 demons. I go through seasons of painting these demons. Sometimes I don’t paint them for a few years, other times I paint them every day. They are what I consider minor demons; demons of the mundane. Nothing supernatural, but maybe that is what makes them even worse. I realize that others could have more terrible demons, but these are my own personal ones which occupy my mind.
-       </Typography>
-       </DialogContentText>        
-      
-     
-
-        <CloseIcon   onClick={handleClose} sx={{ cursor: "pointer"}}/>
-        </DialogContent>
-   </Dialog>
-
+    <Box sx={{    display: 'flex',
+      flexDirection: 'column',
+      flexWrap: 'wrap',
+      alignContent: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+      //media query for mobile -> flex dir column,align items-stretch
+      }}>
+      <Typography variant='h1'> Celine Perley is</Typography>
  
-</div>
-      <Stack  direction="column"
-  justifyContent="left"
-  alignItems="stretch" spacing="12" className={styles.demons} >
-      <a className={styles.demonHeader1} onClick={() => document.getElementById("header-2").scrollIntoView(({ behavior: 'instant', block: "center", inline: "center" }))} id="header-1"> ONE!</a>
-      <div className={styles.demonHeader2} id="header-2" onClick={() => document.getElementById("header-3").scrollIntoView(({ behavior: 'instant', block: "center", inline: "center" }))}> HUNDRED!</div>
-      <div className={styles.demonHeader3} id="header-3"  onClick={() => document.getElementById("demons").scrollIntoView(({ behavior: 'smooth', block: "start", inline: "start" }))}> DEMONS!</div>
-      </Stack>
-    <div id="demons"/> 
-      <PhotoGrid sortBy={sortBy}/>
-     </main>
+      <Button
+         id="demo-customized-button"
+         aria-controls={open ? 'demo-customized-menu' : undefined}
+         aria-haspopup="true"
+         aria-expanded={open ? 'true' : undefined}
+         variant="contained"
+         disableElevation
+         onClick={handleClick}
+         endIcon={<KeyboardArrowDownIcon />}
+        sx={{marginLeft: '2rem', marginBottom: '2rem'}}
+> {options[selectedIndex]}
+  </Button>
+  <Menu  anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}> 
+  {options.map((option, index) => (
+          <MenuItem
+            key={option}
+            selected={index === selectedIndex}
+            onClick={(event) => handleMenuItemClick(event, index)}
+            value={option}
+          >
+            {option}
+          </MenuItem>
+        ))}
+  </Menu>
 
-     
+ <ProjectGrid/> 
 
-  )
+    </Box>
+ 
+    
+         
+    
+      )
 }

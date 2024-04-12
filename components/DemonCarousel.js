@@ -42,7 +42,7 @@ let imageURL = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,
  //useEffect for sortBy?
 
  useEffect(() => {
-console.log('useEffect has been updated')
+
   demonImages.sort(sortMethods[sortBy].method).map((o) => (
  
     demonArray.push({name: o.demonName, image: imageURL + o.image, summary: o.demonDescription, number: o.demonNumber,sadRating: o.sadRating  } )
@@ -52,18 +52,18 @@ console.log('useEffect has been updated')
 
 , [sortBy]);
  
-console.log('carousel arrary', demonArray, 'index', index)
+
  //const actualDemonName = (demonName === undefined) ? demonNumber.number + "." :  demonNumber.number + ". "+  demonName;
 const [activeIndex, setActiveIndex] = useState(index);
 let test = "";
 const nextSlide = () => {
-  console.log('is this next doing anything?', activeIndex, demonArray.length)
+
     setActiveIndex((prevIndex) =>
       prevIndex === demonArray.length - 1 ? 0 : prevIndex + 1
     );
   };
   const prevSlide = () => {
-    console.log('is this doing anything?', activeIndex)
+  
     setActiveIndex((prevIndex) =>
       prevIndex === 0 ? demonArray.length - 1 : prevIndex - 1
     );

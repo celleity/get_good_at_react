@@ -5,7 +5,6 @@ import { CardActionArea, Container,Dialog, DialogContent, DialogContentText, Dia
 import styles from '../styles/Home.module.css';
 import CloseIcon from '@mui/icons-material/Close';
 import { buildUrl } from 'cloudinary-build-url';
-import { Image } from 'mui-image'
 import  DemonCarousel from './DemonCarousel';
 
 export default function DemonCard({demonNumber, demonSummary, demonImageURL, demonName, sortBy, setSortBy, index}) {
