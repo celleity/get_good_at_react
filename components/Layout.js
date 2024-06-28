@@ -6,22 +6,20 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import React, { useEffect, useRef, useState } from 'react';
-
+import Link from 'next/link';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import Layout from '../components/Layout';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import ProjectGrid from '../components/ProjectGrid';
-import ProjectPhotoList from '../components/ProjectPhotoList';
 
-export default function Home() {
-  //when hover, target replaces state, which is the text
- /*  const [anchorEl, setAnchorEl] = React.useState(null);
+export default function Layout({children}) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  
+  const [verb, setVerb] = useState('creating');
   
 const theme = createTheme({
   palette: {
@@ -57,7 +55,7 @@ const theme = createTheme({
     divs.forEach(div => { //if # = current selected, hidden = false. otherwise, true
       console.log(div)
       
-    }) 
+    }) */
     setSelectedIndex(index);
    // console.log(divs)
 
@@ -69,7 +67,7 @@ const theme = createTheme({
   };
 
 
-useEffect(() => {
+/* useEffect(() => {
   
    const divs = document.querySelectorAll('.grids'); // add wild card to get all grids
    let gridItems = Array.from(divs, (div) => div.childNodes);
@@ -107,17 +105,24 @@ useEffect(() => {
 
    
 
-}, ( [selectedIndex]))
+}, ( [selectedIndex])) */
 
 
+  const handleSort = (event) => {
+
+  
+    setSorted(event.target.value)
+   
+  
+  }
 
 
 const image = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w_600,q_auto,f_auto/Ink_Demons/love.jpg'
-*/ 
+
   return (
   
-    <Layout> 
-  { /*   <Box sx={{    display: 'flex',
+  
+    <Box sx={{    display: 'flex',
       flexDirection: 'column',
       flexWrap: 'wrap',
       alignContent: 'center',
@@ -125,10 +130,13 @@ const image = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w
       alignItems: 'center',
       //media query for mobile -> flex dir column,align items-stretch
       }}>
-      <Typography variant='h1'> Celine Perley</Typography>
+        <Link href='/' style={{ textDecoration: 'none', color:'black'}}> 
+      <Typography id="header" variant='h1' sx={{'&:hover': {color: 'red'}, paddingBottom: '2rem'}} > Celine Perley </Typography> 
       
+      </Link>
+      { /*     <Typography variant='h1' sx={{display: 'flex', justifyContent: 'center'}}> is {verb} </Typography>
     <ThemeProvider theme={theme}>
-      <Button
+    <Button
          id="demo-customized-button"
          aria-controls={open ? 'demo-customized-menu' : undefined}
          aria-haspopup="true"
@@ -157,11 +165,11 @@ const image = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w
             {option}
           </MenuItem>
         ))}
-  </Menu>
-  */}
- <ProjectPhotoList/> 
+  </Menu> */ } 
 
-    </Layout>
+{children}
+
+    </Box>
  
     
          

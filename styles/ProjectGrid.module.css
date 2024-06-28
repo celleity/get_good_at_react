@@ -1,0 +1,73 @@
+.link {
+  color: black;
+  }
+
+  .on {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    font-size: 3em;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.167;
+    letter-spacing: 0em;
+    font-family: Helvetica;
+    padding-right: 1rem;
+    word-break: break-all;
+   }
+   
+   
+   @media (max-width:600px) {
+    .on {
+    font-size: 1.5rem;
+    }
+  }
+
+
+   
+   .off {
+
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.167;
+    letter-spacing: 0em;
+    font-family: Helvetica;
+    padding-right: 1rem;
+    word-break: break-all;
+  
+  
+  }
+
+  a#aboutLink:link {
+    color: black;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.167;
+    letter-spacing: 0em;
+    font-family: Helvetica;
+    padding-right: 1rem;
+    word-break: break-all;
+
+  }
+
+
+  div.aboutVerb:hover  {
+    color: red;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.167;
+    letter-spacing: 0em;
+    font-family: Helvetica;
+    padding-right: 1rem;
+    word-break: break-all;
+
+  }
