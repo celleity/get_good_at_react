@@ -12,8 +12,9 @@ import ArtDialog from './ArtDialog';
 
 const ArtImageList = ({imageArray}) => {
 // add sorting here? 
-// const [isOpen, setIsOpen] = useState(false)
-let dialogImage = '';
+ const [isOpen, setIsOpen] = useState(false)
+ const [bigImage, setBigImage] = useState({})
+let dialogImageURL = '';
 const url = 'https://res.cloudinary.com/inkdemons/image/upload/w_450,q_35/v1719083574/images/'
    /* if (imageArray.length === 0) {
         let defaultImages = useImages();
@@ -22,9 +23,14 @@ const url = 'https://res.cloudinary.com/inkdemons/image/upload/w_450,q_35/v17190
     } */
 
 
-    const handleClick = (image) => {
-        dialogImage = image;
-      // setIsOpen(!isOpen)
+    const handleClick = (dialogImage, dialogTitle, dialogDescription) => {
+    
+      dialogImageURL = url + dialogImage;
+      
+      setBigImage({image: dialogImageURL, title: dialogTitle, description: dialogDescription})
+      console.log(bigImage, isOpen)
+      setIsOpen(true)
+       
 
     }
 
@@ -71,10 +77,61 @@ return (
             alt={item.title}
             loading="lazy"
             className='MuiImageListItem-img'
-            onClick={() => handleClick(item.image)} 
+            onClick={() => handleClick(item.image, item.title, item.description)} 
            
           /> 
-          <ArtDialog isOpened={false} image={dialogImage}  /> 
+          <Dialog   
+
+              maxWidth='lg'
+              fullWidth='true'
+              fullScreen={false}
+              open={isOpen}
+              onClose={() => setIsOpen(false)
+              }
+              sx={{height: {lg: '80%'}}}
+
+
+              >  
+
+              <CloseIcon   onClick={() => setIsOpen(false)} sx={{ cursor: "pointer", paddingTop: "20px", paddingRight: "24px", alignSelf: "flex-end"}}/>  
+              <div className="dialogImg" style={{ display: {lg: 'flex'}, flexDirection: 'row', overflowY: 'clip' }} >
+
+
+
+                
+                <DialogContent   sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              height:'80%'
+
+
+              }}>  <DialogTitle>{bigImage.title}</DialogTitle>
+                  <img
+                        src={bigImage.image}
+                      
+                        loading="lazy"
+                        className='MuiImageListItem-img'
+                        onClick={() => setIsOpen(true)}
+                      
+                      /> 
+              
+              <Typography
+              className='h3'
+              variant='h3'
+              align='center'
+        
+     
+           
+          >{bigImage.description}
+            </Typography>
+                </DialogContent>
+               
+   
+ 
+            </div>
+      </Dialog>
+
+
               <Typography
               className='title'
               variant='h2'

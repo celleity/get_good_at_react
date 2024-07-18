@@ -7,7 +7,8 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 const ArtDialog = ({isOpened, image}) => {
-    const [isOpen, setIsOpen] = useState(isOpened)
+    const test = isOpened
+    const [isOpen, setIsOpen] = useState(test)
     const url = 'https://res.cloudinary.com/inkdemons/image/upload/w_450,q_35/v1719083574/images/'
 console.log('its getting here', isOpened)
 
@@ -26,14 +27,15 @@ console.log('its getting here', isOpened)
         maxWidth='lg'
         fullWidth='true'
         fullScreen={true}
-        open={isOpened}
-        onClose={() => handleClose}
+        open={isOpen}
+        onClose={() => setIsOpen(false)
+        }
         sx={{height: {lg: '80%'}}}
        
       
         >  
         
-        <CloseIcon   onClick={handleClose} sx={{ cursor: "pointer", paddingTop: "20px", paddingRight: "24px", alignSelf: "flex-end"}}/>  
+        <CloseIcon   onClick={() => setIsOpen(false)} sx={{ cursor: "pointer", paddingTop: "20px", paddingRight: "24px", alignSelf: "flex-end"}}/>  
         <div className="dialogImg" style={{ display: {lg: 'flex'}, flexDirection: 'row', overflowY: 'clip' }} >
       
       
