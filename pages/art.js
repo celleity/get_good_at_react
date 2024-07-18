@@ -19,18 +19,19 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-import ProjectGrid from '../components/ProjectGrid';
+import ArtImageList from '../components/ArtImageList';
 import { useImages } from '../components/useImages';
 import { image } from '@cloudinary/url-gen/qualifiers/source';
 import { Description } from '@mui/icons-material';
 
-export default function Sketches() {
+export default function art() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [sortBy, setSortBy] = useState('newest')
+  const [sortBy, setSortBy] = useState('oldest')
   const [subject, setSubject] = React.useState('all');
   const open = Boolean(anchorEl);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
-  const url = 'https://res.cloudinary.com/inkdemons/image/upload/v1719083574/images/'
+  const url = 'https://res.cloudinary.com/inkdemons/image/upload/c_thumb,w_200,g_face/v1719083574/images/'
+
   
 const theme = createTheme({
   palette: {
@@ -40,7 +41,30 @@ const theme = createTheme({
     secondary: purple,
   },
 });
-function srcset(image, width, height, rows = 1, cols = 3) {
+
+// create hook to get images 
+ let imageData = useImages();
+const [images, setImages] = useState([]);
+
+
+useEffect(() => {
+ 
+  setImages(imageData)
+  console.log('initial',images, imageData)
+  setSortBy('oldest')
+}, [imageData]); 
+
+
+const sortMethods = {
+    oldest: { method: (a, b) => (new Date (a.date)  - new Date (b.date)) },
+    newest: { method: (a, b) => (new Date (b.date)  - new Date (a.date))   },
+    saddest: { method: (a, b) => (b.sadRating - a.sadRating) },
+    happiest: { method: (a, b) => (a.sadRating - b.sadRating) },
+  };
+
+
+
+  function srcset(image, width, height, rows = 1, cols = 3) {
     return {
       src: `${image}?w=${width * cols}&h=${height * rows}&fit=crop&auto=format`,
       srcSet: `${image}?w=${width * cols}&h=${
@@ -48,9 +72,17 @@ function srcset(image, width, height, rows = 1, cols = 3) {
       }&fit=crop&auto=format&dpr=2 2x`,
     };
   }
-// create hook to get images 
-const imageData = useImages() 
-const [images, setImages] = React.useState(imageData);
+const orderImages = (order, imageArray) => {
+    let sortedImages = []; 
+    imageArray.sort(sortMethods[order].method).map((o) => (
+ 
+        sortedImages.push({title: o.title, image: o.image, description: o.description, sadRating: o.sadRating, kind: o.kind, date: o.date } )
+       ));
+       
+      
+    setImages(sortedImages)
+    console.log('sortedImages', sortedImages, 'sortBy', order, 'images', images )
+}
 
   const handleChange = (event) => {
     
@@ -60,58 +92,51 @@ const [images, setImages] = React.useState(imageData);
     let word=event.target.value;
      
     if(word === "all"){
-      setImages(imageData)
+      orderImages('oldest', imageData)
       console.log('all ', images, )
+
+      
     }
     else if(word === "demons") {
       const filtered = imageData.filter(item=>item.kind === "demon");
       console.log('demon', filtered, )
-      setImages(filtered)
+    //  setImages(filtered)
+      orderImages('oldest', filtered)
     }
     else if(word === "sketches") {
       const filtered = imageData.filter(item=>item.kind === "sketches");
       console.log('sketch', filtered, )
       setImages(filtered)
+      orderImages('oldest', filtered)
     }
 
   };
-  useEffect(() => {
-    setImages(imageData)
-  }, []);
 
-  const sortMethods = {
-    oldest: { method: (a, b) => (new Date (a.date)  - new Date (b.date)) },
-    newest: { method: (a, b) => (new Date (b.date)  - new Date (a.date))   },
-    saddest: { method: (a, b) => (b.sadRating - a.sadRating) },
-    happiest: { method: (a, b) => (a.sadRating - b.sadRating) },
-  };
+
+
+
   const handleSort = (event) => {
 
   
     setSortBy(event.target.value)
+    orderImages(event.target.value, images);
+    console.log('sortBy',event.target.value, images )
 
-    let sortedImages = []; 
+ /*   let sortedImages = []; 
     images.sort(sortMethods[event.target.value].method).map((o) => (
  
         sortedImages.push({title: o.title, image: o.image, description: o.description, sadRating: o.sadRating, kind: o.kind, date: o.date } )
        ));
        
       
-    setImages(sortedImages)
-    console.log('sortedImages', sortedImages, 'sortBy', event.target.value )
-  }
-/*  useEffect(() => {
-
-    setImages(images.sort(sortMethods[sortBy].method).map((o) => (
-   
-      images.push({title: o.title, image: url + o.image, description: o.description, sadRating: o.sadRating, kind: o.kind, title: o.title } )
-     )));
-     console.log('sorting', sortBy, images)
+    setImages(sortedImages) */ 
+  
   }
 
-
-  , [sortBy]); */
-
+  useEffect(() => {
+    console.log('its effecting', sortBy, images)
+    orderImages(sortBy, images)
+  }, [sortBy]);
 
 
 
@@ -180,70 +205,7 @@ const [images, setImages] = React.useState(imageData);
         </Container>
 
 
-        <ImageList
-        sx={{
-         // width: 250,
-         // height: 250,
-          // Promote the list into its own layer in Chrome. This costs memory, but helps keeping high FPS.
-          transform: 'translateZ(0)',
-          overflow: 'hidden'
-        }}
-        cols={3}
-       // rowHeight={250}
-        gap={6}
-      >
-        {images.map((item) => {
-         
-  
-          return (
-           
-            <ImageListItem key={item.img} cols={1} rows={1} sx={{ 
-                "&:hover": {
-                cursor: "pointer",
-                opacity: 1,
-                    ".title": {
-               
-                    position:'absolute',
-                    display:'block',
-                    marginTop: '25%',
-                    marginLeft: '40%',
-                    
-                  },
-                }
-             
-             
-              }} >
-         
-               <a href={item.link} > 
-         
-              <img
-                {...srcset(url + item.image, 200, 250, 1, 1)}
-                alt={item.title}
-                loading="lazy"
-                className='MuiImageListItem-img'
-               
-              /> </a>
-                  <Typography
-                  className='title'
-                  variant='h2'
-                  align='center'
-                sx={{
-                    display: 'none',
-                    opacity:1
-               
-                   
-                  
-                }}
-         
-               
-              >{item.title}
-                </Typography>
-
-         
-            </ImageListItem> 
-          );
-        })}
-      </ImageList>
+    <ArtImageList imageArray={images} />
 
  </Layout>
  

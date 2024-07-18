@@ -15,6 +15,7 @@ const supabase = createClient("https://mtlhlvwncdtbgxcbovei.supabase.co", "eyJhb
   const { data} = await supabase
     .from('demons')
     .select('*')
+    .order('date')
     setImages(data)
     setIsLoading(false);
    
@@ -25,6 +26,7 @@ const supabase = createClient("https://mtlhlvwncdtbgxcbovei.supabase.co", "eyJhb
    
     getImageData()
   
+  console.log(images)
   }
   , []);
 
