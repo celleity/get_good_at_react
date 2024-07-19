@@ -15,7 +15,7 @@ const ArtImageList = ({imageArray}) => {
  const [isOpen, setIsOpen] = useState(false)
  const [bigImage, setBigImage] = useState({})
 let dialogImageURL = '';
-const url = 'https://res.cloudinary.com/inkdemons/image/upload/w_450,q_35/v1719083574/images/'
+const url = 'https://res.cloudinary.com/inkdemons/image/upload/w_600,q_35/v1719083574/images/'
    /* if (imageArray.length === 0) {
         let defaultImages = useImages();
         imageArray = defaultImages; 
@@ -78,7 +78,7 @@ return (
             loading="lazy"
             className='MuiImageListItem-img'
             onClick={() => handleClick(item.image, item.title, item.description)} 
-           
+          
           /> 
           <Dialog   
 
@@ -88,7 +88,7 @@ return (
               open={isOpen}
               onClose={() => setIsOpen(false)
               }
-              sx={{height: {lg: '80%'}}}
+              sx={{overflowY: 'none',overflowX: 'none'}}
 
 
               >  
@@ -105,10 +105,13 @@ return (
               height:'80%'
 
 
-              }}>  <DialogTitle>{bigImage.title}</DialogTitle>
+              }}>  <DialogTitle  ><Typography  className='h3'
+              variant='h3'
+              align='center'
+              sx={{paddingTop: '0px', paddingBottom: '2rem'}}> {bigImage.title}</Typography></DialogTitle>
                   <img
                         src={bigImage.image}
-                      
+                        style={{width: '650px',alignSelf: 'center'}}
                         loading="lazy"
                         className='MuiImageListItem-img'
                         onClick={() => setIsOpen(true)}
@@ -116,10 +119,10 @@ return (
                       /> 
               
               <Typography
-              className='h3'
-              variant='h3'
+              className='h4'
+              variant='h5'
               align='center'
-        
+            
      
            
           >{bigImage.description}
