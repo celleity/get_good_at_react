@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { grey, purple } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
+import Container from '@mui/material/Container';
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Button from '@mui/material/Button';
@@ -125,15 +125,31 @@ const image = 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w
     <Box sx={{    display: 'flex',
       flexDirection: 'column',
       flexWrap: 'wrap',
-      alignContent: 'center',
+      alignContent: 'flex-start',
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       //media query for mobile -> flex dir column,align items-stretch
       }}>
         <Link href='/' style={{ textDecoration: 'none', color:'black'}}> 
-      <Typography id="header" variant='h1' sx={{'&:hover': {color: 'red'}, paddingBottom: '2rem'}} > Celine Perley </Typography> 
+      <Typography id="header" variant='h1' sx={{'&:hover': {color: 'red'}, paddingBottom: '2rem', paddingLeft: '.5rem'}} > Celine Perley </Typography> 
       
       </Link>
+      <Container className="verbHeaders" maxWidth='false' sx={{display: 'flex', flexWrap: 'wrap',  wordBreak: 'break-all', justifyContent: 'flex-start', xs: {marginLeft: '0px'} }}> 
+        <Link href='/about' className="aboutVerb" id="aboutLink" style={{ textDecoration: 'none', color:'turquoise', '&:hover': {color: 'red'}, }} > <Typography id='aboutVerb' className="aboutVerb" variant='h3'sx={{ fontFamily: "Helvetica",paddingRight: '1rem',  wordBreak: 'break-all',  textDecoration: 'none', color: '#2AB9C0', '&:hover': {color: 'red'} }} >  is a person  </Typography></Link>
+        <Typography variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
+        <Link href='/art' className="artVerb" id="artLink" style={{ textDecoration: 'none', color:'black', '&:hover': {color: 'red'}, }} > <Typography id='artVerb' className="artVerb" variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', color: '#CA2DDF', '&:hover': {color: 'red'} }} > is making art </Typography> </Link>
+        <Typography  variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
+        <Link href='/sewing' className="aboutVerb" id="aboutLink" style={{ textDecoration: 'none', color:'turquoise', '&:hover': {color: 'red'}, }} >
+        <Typography id='sewVerb'  className="sewVerb" variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem',  wordBreak: 'break-all', color: '#F1681E', '&:hover': {color: 'red'}}}>  is sewing  </Typography>
+        </Link>
+      
+        <Typography  variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
+        <Typography id='experimentVerb' className="experimentVerb" variant='h3' sx={{ fontFamily: "Helvetica",paddingRight: '1rem', color: '#EE169C', '&:hover': {color: 'red'}}}>  is experimenting  </Typography>
+        <Typography  variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
+        <Typography id='inpsiredVerb' className="inspiredVerb"  variant='h3' sx={{ fontFamily: "Helvetica",paddingRight: '1rem', color: '#EECA16', '&:hover': {color: 'red'}}}>  is inspired  </Typography>
+      
+        
+        </Container>
       { /*     <Typography variant='h1' sx={{display: 'flex', justifyContent: 'center'}}> is {verb} </Typography>
     <ThemeProvider theme={theme}>
     <Button

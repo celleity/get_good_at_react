@@ -19,12 +19,12 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-import ArtImageList from '../components/ArtImageList';
-import { useImages } from '../components/useImages';
+import SewingImageList from '../components/SewingImageList';
+import { useSewing } from '../components/useSewing';
 import { image } from '@cloudinary/url-gen/qualifiers/source';
 import { Description } from '@mui/icons-material';
 
-export default function art({linkSubject}) {
+export default function sewing({linkSubject}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [sortBy, setSortBy] = useState('oldest')
 
@@ -53,14 +53,14 @@ const theme = createTheme({
 });
 
 // create hook to get images 
- let imageData = useImages();
+ let imageData = useSewing();
 const [images, setImages] = useState([]);
 
 
 useEffect(() => {
  
   setImages(imageData)
-  console.log('initial',images, imageData)
+  console.log('initial sewing data',images, imageData)
   setSortBy('oldest')
 }, [imageData]); 
 
@@ -68,8 +68,8 @@ useEffect(() => {
 const sortMethods = {
     oldest: { method: (a, b) => (new Date (a.date)  - new Date (b.date)) },
     newest: { method: (a, b) => (new Date (b.date)  - new Date (a.date))   },
-    saddest: { method: (a, b) => (b.sadRating - a.sadRating) },
-    happiest: { method: (a, b) => (a.sadRating - b.sadRating) },
+    colour: { method: (a, b) => (b.colour - a.colour) },
+    neutral: { method: (a, b) => (a.colour - b.colour) },
   };
 
 
@@ -86,7 +86,7 @@ const orderImages = (order, imageArray) => {
     let sortedImages = []; 
     imageArray.sort(sortMethods[order].method).map((o) => (
  
-        sortedImages.push({title: o.title, image: o.image, description: o.description, sadRating: o.sadRating, kind: o.kind, date: o.date } )
+        sortedImages.push({title: o.title, image: o.image, description: o.description, pattern: o.pattern, kind: o.kind, date: o.date, collection: o.collection, colour: o.colour } )
        ));
        
       
@@ -107,18 +107,36 @@ const orderImages = (order, imageArray) => {
 
       
     }
-    else if(word === "demons") {
-      const filtered = imageData.filter(item=>item.kind === "demon");
-      console.log('demon', filtered, )
-    //  setImages(filtered)
+    else if(word === "tops") {
+      const filtered = imageData.filter(item=>item.kind === "tops");
+ 
       orderImages('oldest', filtered)
     }
-    else if(word === "sketches") {
-      const filtered = imageData.filter(item=>item.kind === "sketches");
-      console.log('sketch', filtered, )
+    else if(word === "bottoms") {
+      const filtered = imageData.filter(item=>item.kind === "bottoms");
+   
       setImages(filtered)
       orderImages('oldest', filtered)
     }
+    else if(word === "dresses") {
+        const filtered = imageData.filter(item=>item.kind === "dresses");
+     
+        setImages(filtered)
+        orderImages('oldest', filtered)
+      }
+      else if(word === "accessories") {
+        const filtered = imageData.filter(item=>item.kind === "accessories");
+     
+        setImages(filtered)
+        orderImages('oldest', filtered)
+      }
+      else if(word === "NB") {
+        const filtered = imageData.filter(item=>item.collection === "NB");
+     
+        setImages(filtered)
+        orderImages('oldest', filtered)
+      }
+  
 
   };
 
@@ -174,11 +192,11 @@ const orderImages = (order, imageArray) => {
           className='right'
         >
           <MenuItem value={'all'}>all</MenuItem>
-          <MenuItem value={'demons'}>demons</MenuItem>
-          <MenuItem value={'sketches'}>sketches</MenuItem>
-          <MenuItem value={'paintings'}>paintings</MenuItem>
-          <MenuItem value={'photos'}>photos</MenuItem>
-          <MenuItem value={'misc'}>misc</MenuItem>
+          <MenuItem value={'tops'}>tops</MenuItem>
+          <MenuItem value={'bottoms'}>bottoms</MenuItem>
+          <MenuItem value={'dresses'}>dresses</MenuItem>
+          <MenuItem value={'accessories'}>Accessories</MenuItem>
+          <MenuItem value={'NB'}>NB Collection</MenuItem>
         </Select>
         <Select
           labelId="demo-simple-select-label"
@@ -191,8 +209,9 @@ const orderImages = (order, imageArray) => {
         >
           <MenuItem value={'oldest'}>oldest</MenuItem>
           <MenuItem value={'newest'}>newest</MenuItem>
-          <MenuItem value={'happiest'}>happiest</MenuItem>
-          <MenuItem value={'saddest'}>saddest</MenuItem>
+          <MenuItem value={'colour'}>colour</MenuItem>
+          <MenuItem value={'neutral'}>neutral</MenuItem>
+        
         
         
         </Select>
@@ -201,7 +220,7 @@ const orderImages = (order, imageArray) => {
         </Container>
 
 
-    <ArtImageList imageArray={images} />
+    <SewingImageList imageArray={images} />
 
  </Layout>
  

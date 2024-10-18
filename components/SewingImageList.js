@@ -10,14 +10,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArtDialog from './ArtDialog';
 
 
-const ArtImageList = ({imageArray}) => {
+const SewingImageList = ({imageArray}) => {
 // add sorting here? 
  const [isOpen, setIsOpen] = useState(false)
  const [bigImage, setBigImage] = useState({})
 let dialogImageURL = '';
-const url = 'https://res.cloudinary.com/inkdemons/image/upload/w_600,q_35/v1706288243/images/'
-
-
+const url = 'https://res.cloudinary.com/inkdemons/image/upload/w_300,q_50/sewing/';
 
 
     const handleClick = (dialogImage, dialogTitle, dialogDescription) => {
@@ -80,7 +78,7 @@ return (
           <Dialog   
 
               maxWidth='lg'
-              fullWidth='true'
+              fullWidth='false'
               fullScreen={false}
               open={isOpen}
               onClose={() => setIsOpen(false)
@@ -108,7 +106,7 @@ return (
               sx={{paddingTop: '0px', paddingBottom: '1rem'}}> {bigImage.title}</Typography></DialogTitle>
                   <img
                         src={bigImage.image}
-                        style={{width: '650px',alignSelf: 'center'}}
+                        style={{width: '400px',alignSelf: 'center'}}
                         loading="lazy"
                         className='MuiImageListItem-img'
                         onClick={() => setIsOpen(true)}
@@ -160,4 +158,4 @@ return (
 )
 
 } 
-export default ArtImageList;
+export default SewingImageList;

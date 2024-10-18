@@ -54,7 +54,7 @@ export default function Demons() {
 
   }
   useEffect(() => {
- console.log("this does change or trigger")
+
   }, [sortBy]);
 
   

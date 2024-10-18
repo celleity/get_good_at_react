@@ -50,7 +50,8 @@ const handleMenuClose = () => {
 //sort by demon numbers, asc to descending, with metadata
 
 const sketchImages = useSketchImages();
-
+// sort by options: saddest, happiest, newest, oldest, beauty, favourites,
+// filter by :  demons, sketches, photos, paintings
 const sortMethods = {
   oldest: { method: (a, b) => (new Date(a.date).getTime() - new Date(b.date).getTime()) },
   newest: { method: (a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime())  },

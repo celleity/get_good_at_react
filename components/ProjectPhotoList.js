@@ -21,21 +21,7 @@ function srcset(image, width, height, rows = 1, cols = 3) {
   export default function CustomImageList() {
     return (
         <div> 
-        <Container className="verbHeaders" maxWidth='false' sx={{display: 'flex', flexWrap: 'wrap',  wordBreak: 'break-all', justifyContent: 'center', }}> 
-        <Link href='/about' className="aboutVerb" id="aboutLink" style={{ textDecoration: 'none', color:'turquoise', '&:hover': {color: 'red'}, }} > <Typography id='aboutVerb' className="aboutVerb" variant='h3'sx={{ fontFamily: "Helvetica",paddingRight: '1rem',  wordBreak: 'break-all',  textDecoration: 'none', color: '#2AB9C0', '&:hover': {color: 'red'} }} >  is a person  </Typography></Link>
-        <Typography variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
-        <Typography id='artVerb' className="artVerb" variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', color: '#CA2DDF', '&:hover': {color: 'red'} }} > is making art </Typography> 
-        <Typography  variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
-        <Typography id='sewVerb'  className="sewVerb" variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem',  wordBreak: 'break-all', color: '#F1681E', '&:hover': {color: 'red'}}}>  is sewing  </Typography>
-      
-      
-        <Typography  variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
-        <Typography id='experimentVerb' className="experimentVerb" variant='h3' sx={{ fontFamily: "Helvetica",paddingRight: '1rem', color: '#EE169C', '&:hover': {color: 'red'}}}>  is experimenting  </Typography>
-        <Typography  variant='h3' sx={{fontFamily: "Helvetica", paddingRight: '1rem', }} > and</Typography> 
-        <Typography id='inpsiredVerb' className="inspiredVerb"  variant='h3' sx={{ fontFamily: "Helvetica",paddingRight: '1rem', color: '#EECA16', '&:hover': {color: 'red'}}}>  is inspired  </Typography>
-      
-        
-        </Container>
+
       <ImageList
         sx={{
          // width: 250,
@@ -74,7 +60,7 @@ function srcset(image, width, height, rows = 1, cols = 3) {
                <a href={item.link} > 
          
               <img
-                {...srcset(item.img, 200, 250, rows, cols)}
+                src={item.img}
                 alt={item.title}
                 loading="lazy"
                 className='MuiImageListItem-img'
@@ -108,50 +94,50 @@ function srcset(image, width, height, rows = 1, cols = 3) {
 
   const itemData = [
     {
-        img: 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w_600,q_auto,f_auto/Ink_Demons/acne.jpg',
+        img: 'https://res.cloudinary.com/inkdemons/image/upload/v1713398894/images/20231103_104707_ehmaot.jpg',
         title: 'about',
         link: '/about'
   
       },
     {
-      img: 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w_600,q_auto,f_auto/Ink_Demons/acne.jpg',
+      img: 'https://res.cloudinary.com/inkdemons/image/upload/v1706288233/images/love.jpg',
       title: 'Demons',
       link: '/art#demons'
 
     },
     {
-      img: 'https://res.cloudinary.com/inkdemons/image/upload/c_scale,h_400,w_600,q_auto,f_auto/Ink_Demons/aging.jpg',
+      img: 'https://res.cloudinary.com/inkdemons/image/upload/v1713398897/images/20231215_113736_vaftdf.jpg',
       title: 'Sketches',
       link: '/art#sketches'
     
     },
     {
-      img: 'https://res.cloudinary.com/inkdemons/image/upload/v1713398909/Sketches/basinhead.jpg',
+      img: 'https://res.cloudinary.com/inkdemons/image/upload/v1713398905/images/candiedoranges.jpg',
       title: 'Paintings',
       link: '/art#paintings'
     
     },
     {
-      img: 'https://res.cloudinary.com/inkdemons/image/upload/v1713398886/Sketches/cafe_loka.jpg',
+      img: 'https://res.cloudinary.com/inkdemons/image/upload/v1719083573/images/DSC_0284_2_-min_ie1w13.jpg',
       title: 'Photos',
       link: '/art#photos'
    
     },
     {
-        img: 'https://res.cloudinary.com/inkdemons/image/upload/v1713398897/Sketches/20231215_113949_zn9di7.jpg',
+        img: 'https://res.cloudinary.com/inkdemons/image/upload/v1719083570/images/bike.jpg',
         title: 'Sewing',
         link: '/sewing'
      
       },
 
       {
-        img: ' https://res.cloudinary.com/inkdemons/image/upload/v1719083574/Photos/scotland1.jpg',
+        img: 'https://res.cloudinary.com/inkdemons/image/upload/v1719083574/images/scotland1.jpg',
         title: 'Experiments',
         link: '/experiment'
      
       },
       {
-        img: ' https://res.cloudinary.com/inkdemons/image/upload/v1719083574/Photos/scotland1.jpg',
+        img: 'https://res.cloudinary.com/inkdemons/image/upload/v1706288225/images/coverletters.jpg',
         title: 'Lists',
         link: '/inspo'
      
